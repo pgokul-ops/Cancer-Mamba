@@ -130,3 +130,44 @@ pytest tests/test_splits.py -v
 python scripts/preprocess.py --num-workers 6
 ```
 
+---
+
+## 7. Stage 2: Minimal 3D CNN Baseline (Plumbing Check)
+
+Stage 2 serves as an explicit end-to-end plumbing verification for the training loop, GPU memory pipeline, patient-level logit pooling, and reproducible logging harness before Mamba sequence modeling.
+
+### Architecture (`models/tiny_cnn3d.py`)
+- 4-stage 3D CNN: `Conv3D(3x3x3) -> BatchNorm3d -> ReLU -> MaxPool3d(2x2x2)`
+- Channels: 1 -> 8 -> 16 -> 32 -> 64
+- Head: `AdaptiveAvgPool3d(1) -> Dropout(0.2) -> Linear(64, 1)`
+- Parameters: **73,097** (<1M params)
+- Peak VRAM: **156.15 MB** (4.2% of 3712 MB budget on NVIDIA GTX 1650) with FP16 AMP.
+
+### Verification Progression
+1. **Overfit Memorization Test**: Trained on 8 volumes for 40 epochs; loss reached **0.0045** and accuracy reached **100.0%** (memorization confirmed).
+2. **Single-Fold Sanity Check**: Validated on fold 0, inspecting patient prediction tables, probabilities, and gradient flow.
+3. **5-Fold Cross-Validation**: Full 5-fold CV completed in 204.7 seconds (~41s/fold) with zero NaN losses and zero constant-prediction collapses.
+
+### Patient-Level vs. Volume-Level Metrics
+
+| Metric | Patient-Level (Primary) | Volume-Level (Inflated) |
+| :--- | :---: | :---: |
+| **ROC-AUC** | **0.7052 +/- 0.1474** | 0.6813 +/- 0.1373 |
+| **PR-AUC** | **0.8050 +/- 0.1007** | 0.8596 +/- 0.0624 |
+| **F1 Score** | **0.6466 +/- 0.2251** | 0.7130 +/- 0.2298 |
+| **Balanced Accuracy** | **0.5633 +/- 0.0441** | 0.5758 +/- 0.0664 |
+| **Sensitivity** | **0.7333 +/- 0.3341** | 0.7583 +/- 0.3253 |
+| **Specificity** | **0.3933 +/- 0.3617** | 0.3934 +/- 0.3148 |
+
+### Running Stage 2
+```bash
+# Run all sanity checks and 5-fold CV:
+python scripts/train_baseline_cnn.py --mode all
+
+# Run specific stages:
+python scripts/train_baseline_cnn.py --mode overfit
+python scripts/train_baseline_cnn.py --mode single_fold
+python scripts/train_baseline_cnn.py --mode full_cv
+```
+
+

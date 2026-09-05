@@ -1,0 +1,49 @@
+# configs/baseline_cnn.yaml
+# Configuration for Stage 2: Minimal 3D CNN Baseline (Plumbing Check)
+
+experiment:
+  name: "baseline_cnn"
+  description: "Minimal 3D CNN sanity check and plumbing verification on TCGA-OV"
+  stage: 2
+
+data:
+  patient_index: "data/processed/patient_index.json"
+  splits: "data/splits/folds_v1.json"
+  input_shape: [1, 80, 80, 80]
+  num_workers: 2
+  pin_memory: true
+
+model:
+  name: "TinyCNN3D"
+  in_channels: 1
+  num_classes: 1
+  base_channels: 8
+  dropout: 0.2
+
+training:
+  epochs: 15
+  batch_size: 4
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  pos_weight: 0.6          # 27 / 45 balance adjustment
+  amp: true                # FP16 mixed precision autocast
+  grad_accum_steps: 1      # Gradient accumulation steps
+  seed: 42
+
+overfit_test:
+  num_samples: 8
+  epochs: 40
+  learning_rate: 0.005
+  threshold_loss: 0.05
+  threshold_acc: 0.95
+
+sanity_run:
+  epochs: 5
+  val_fold: 0
+
+cv:
+  n_folds: 5
+  folds: [0, 1, 2, 3, 4]
+
+logging:
+  runs_dir: "runs"
