@@ -4,8 +4,11 @@
 
 # ── Data & Datasets ─────────────────────────────────────────
 DATA/
-data/
-datasets/
+data/processed/
+!data/manifests/
+!data/splits/
+!datasets/
+!models/
 raw/
 processed/
 interim/
@@ -26,7 +29,6 @@ external/
 checkpoints/
 weights/
 saved_models/
-models/
 *.pth
 *.pt
 *.ckpt

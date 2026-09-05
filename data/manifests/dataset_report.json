@@ -1,0 +1,466 @@
+{
+  "report_metadata": {
+    "title": "TCGA-OV Volumetric Cancer Imaging Dataset Audit Report",
+    "stage": "Stage 0",
+    "source_manifest": "data/manifests/manifest_v1.json",
+    "cohort_counts": {
+      "patients_on_disk": 92,
+      "studies_on_disk": 147,
+      "series_on_disk": 462,
+      "total_instances_on_disk": 26570
+    }
+  },
+  "answers_to_acceptance_criteria": {
+    "q1_modality": {
+      "question": "1. Is this CT-only, or is there real MRI here?",
+      "is_pure_ct_only": false,
+      "is_effectively_ct_only_across_cohort": true,
+      "summary": "Real MRI imaging is present (23 series), BUT it belongs to only a SINGLE patient (['TCGA-24-1423']). All 92 of 92 patients (100.0%) have CT scans. Therefore, the cohort is functionally CT-only. Any pipeline requiring paired CT+MRI will fail on 91 of 92 patients (98.9%).",
+      "series_distribution": {
+        "CT": {
+          "series_count": 438,
+          "percentage_of_series": 94.81,
+          "patient_count": 92,
+          "percentage_of_patients": 100.0
+        },
+        "MR": {
+          "series_count": 23,
+          "percentage_of_series": 4.98,
+          "patient_count": 1,
+          "percentage_of_patients": 1.09
+        },
+        "OT": {
+          "series_count": 1,
+          "percentage_of_series": 0.22,
+          "patient_count": 1,
+          "percentage_of_patients": 1.09
+        }
+      },
+      "mr_patient_id": "TCGA-24-1423"
+    },
+    "q2_geometry_and_resolution": {
+      "question": "2. What is the actual distribution of slice count / spacing / in-plane resolution across patients?",
+      "all_modalities": {
+        "CT": {
+          "total_series": 438,
+          "num_instances_stats": {
+            "count": 438,
+            "min": 1.0,
+            "p25": 2.0,
+            "median": 54.0,
+            "mean": 58.9635,
+            "p75": 91.0,
+            "p95": 146.45,
+            "max": 597.0,
+            "std": 62.4714
+          },
+          "in_plane_shape_distribution": {
+            "512x512": 365,
+            "1027x888": 12,
+            "1100x888": 8,
+            "1246x888": 6,
+            "916x888": 4,
+            "1210x888": 3,
+            "917x888": 3,
+            "1255x888": 2,
+            "528x528": 2,
+            "473x512": 2,
+            "1191x888": 2,
+            "1118x888": 2,
+            "972x888": 2,
+            "1063x888": 2,
+            "444x512": 2,
+            "1320x888": 1,
+            "971x888": 1,
+            "1155x888": 1,
+            "696x512": 1,
+            "1008x888": 1,
+            "1136x888": 1,
+            "990x888": 1,
+            "752x888": 1,
+            "1265x888": 1,
+            "543x512": 1,
+            "710x512": 1,
+            "926x888": 1,
+            "1237x888": 1,
+            "614x512": 1,
+            "1301x888": 1,
+            "1046x888": 1
+          },
+          "in_plane_spacing_x_stats_mm": {
+            "count": 438,
+            "min": 0.3906,
+            "p25": 0.6567,
+            "median": 0.7422,
+            "mean": 0.7966,
+            "p75": 0.8594,
+            "p95": 1.03,
+            "max": 2.0,
+            "std": 0.2548
+          },
+          "in_plane_spacing_y_stats_mm": {
+            "count": 438,
+            "min": 0.3906,
+            "p25": 0.6567,
+            "median": 0.7422,
+            "mean": 0.7901,
+            "p75": 0.8594,
+            "p95": 1.03,
+            "max": 2.0,
+            "std": 0.2615
+          },
+          "through_plane_spacing_z_stats_mm": {
+            "count": 435,
+            "min": 0.6,
+            "p25": 5.0,
+            "median": 5.0,
+            "mean": 52.0705,
+            "p75": 7.5,
+            "p95": 265.0,
+            "max": 685.0909,
+            "std": 122.6521
+          },
+          "anisotropy_ratio_stats": {
+            "count": 435,
+            "min": 0.3,
+            "p25": 5.333,
+            "median": 6.975,
+            "mean": 83.2964,
+            "p75": 10.3295,
+            "p95": 444.035,
+            "max": 1147.941,
+            "std": 201.3697
+          }
+        },
+        "MR": {
+          "total_series": 23,
+          "num_instances_stats": {
+            "count": 23,
+            "min": 1.0,
+            "p25": 15.5,
+            "median": 26.0,
+            "mean": 31.4348,
+            "p75": 52.0,
+            "p95": 56.0,
+            "max": 78.0,
+            "std": 21.7272
+          },
+          "in_plane_shape_distribution": {
+            "200x256": 5,
+            "512x512": 5,
+            "384x384": 3,
+            "290x320": 2,
+            "192x256": 2,
+            "112x128": 2,
+            "256x256": 2,
+            "384x512": 1,
+            "256x208": 1
+          },
+          "in_plane_spacing_x_stats_mm": {
+            "count": 23,
+            "min": 0.5859,
+            "p25": 0.8463,
+            "median": 1.1719,
+            "mean": 1.1213,
+            "p75": 1.1719,
+            "p95": 2.3344,
+            "max": 2.4375,
+            "std": 0.4751
+          },
+          "in_plane_spacing_y_stats_mm": {
+            "count": 23,
+            "min": 0.5859,
+            "p25": 0.8463,
+            "median": 1.1719,
+            "mean": 1.1213,
+            "p75": 1.1719,
+            "p95": 2.3344,
+            "max": 2.4375,
+            "std": 0.4751
+          },
+          "through_plane_spacing_z_stats_mm": {
+            "count": 23,
+            "min": 1.5,
+            "p25": 4.0,
+            "median": 4.72,
+            "mean": 17.0316,
+            "p75": 12.82,
+            "p95": 60.0,
+            "max": 60.0,
+            "std": 21.2169
+          },
+          "anisotropy_ratio_stats": {
+            "count": 23,
+            "min": 1.646,
+            "p25": 3.413,
+            "median": 4.103,
+            "mean": 22.6412,
+            "p75": 18.6805,
+            "p95": 102.407,
+            "max": 102.407,
+            "std": 34.3148
+          }
+        },
+        "OT": {
+          "total_series": 1,
+          "num_instances_stats": {
+            "count": 1,
+            "min": 21.0,
+            "p25": 21.0,
+            "median": 21.0,
+            "mean": 21.0,
+            "p75": 21.0,
+            "p95": 21.0,
+            "max": 21.0,
+            "std": 0.0
+          },
+          "in_plane_shape_distribution": {
+            "512x512": 1
+          },
+          "in_plane_spacing_x_stats_mm": {
+            "count": 1,
+            "min": 0.6973,
+            "p25": 0.6973,
+            "median": 0.6973,
+            "mean": 0.6973,
+            "p75": 0.6973,
+            "p95": 0.6973,
+            "max": 0.6973,
+            "std": 0.0
+          },
+          "in_plane_spacing_y_stats_mm": {
+            "count": 1,
+            "min": 0.6973,
+            "p25": 0.6973,
+            "median": 0.6973,
+            "mean": 0.6973,
+            "p75": 0.6973,
+            "p95": 0.6973,
+            "max": 0.6973,
+            "std": 0.0
+          },
+          "through_plane_spacing_z_stats_mm": {
+            "count": 1,
+            "min": 4.0,
+            "p25": 4.0,
+            "median": 4.0,
+            "mean": 4.0,
+            "p75": 4.0,
+            "p95": 4.0,
+            "max": 4.0,
+            "std": 0.0
+          },
+          "anisotropy_ratio_stats": {
+            "count": 1,
+            "min": 5.736,
+            "p25": 5.736,
+            "median": 5.736,
+            "mean": 5.736,
+            "p75": 5.736,
+            "p95": 5.736,
+            "max": 5.736,
+            "std": 0.0
+          }
+        }
+      },
+      "ct_specific_breakdown": {
+        "total_ct_series": 438,
+        "volumetric_ct_count (>20 slices)": 282,
+        "scout_or_localizer_count (<=5 slices)": 132,
+        "intermediate_series_count (6-20 slices)": 24,
+        "volumetric_slice_count_stats": {
+          "count": 282,
+          "min": 21.0,
+          "p25": 57.25,
+          "median": 85.0,
+          "mean": 89.5177,
+          "p75": 100.75,
+          "p95": 179.0,
+          "max": 597.0,
+          "std": 58.5417
+        },
+        "patient_primary_ct_slice_count_stats": {
+          "count": 92,
+          "min": 53.0,
+          "p25": 86.75,
+          "median": 100.0,
+          "mean": 126.2935,
+          "p75": 134.25,
+          "p95": 226.45,
+          "max": 597.0,
+          "std": 80.5486
+        },
+        "volumetric_pixel_spacing_xy_stats_mm": {
+          "count": 282,
+          "min": 0.5215,
+          "p25": 0.7031,
+          "median": 0.7461,
+          "mean": 0.7719,
+          "p75": 0.8413,
+          "p95": 0.9765,
+          "max": 1.2402,
+          "std": 0.1115
+        },
+        "volumetric_slice_thickness_z_stats_mm": {
+          "count": 282,
+          "min": 0.8,
+          "p25": 5.0,
+          "median": 5.0,
+          "mean": 4.9206,
+          "p75": 5.0,
+          "p95": 7.5,
+          "max": 15.0,
+          "std": 1.6418
+        }
+      },
+      "stage_1_candidate_volume_sizing_recommendation": {
+        "finding": "Diagnostic CTs have median in-plane resolution of 512x512 (98.9% of volumetric series), median in-plane spacing of ~0.74 mm (IQR: 0.70 - 0.82 mm), and median slice thickness of 5.0 mm (IQR: 5.0 - 7.5 mm). The median diagnostic scan has 85 slices (patient primary scan median: 90 slices).",
+        "anisotropy_implication": "CT scans are highly anisotropic (median z-spacing is ~6.8x larger than in-plane spacing). Isotropic resampling to e.g. 1.0mm\u00b3 would require ~400\u2013600 slices and exceed the 4GB VRAM budget. Resampling to an isotropic grid of ~2.0mm or 2.5mm\u00b3 yields volumes that fit perfectly in 64\u00b3 to 96\u00b3.",
+        "candidate_volume_sizes": {
+          "64x64x64": "Conservative for 4GB VRAM. Resampling to ~3.0mm isotropic or 2.5mm cropped.",
+          "80x80x80": "Balanced target (recommended baseline). Fits full abdomen/pelvis at ~2.5mm isotropic with batch size 1-2.",
+          "96x96x96": "Maximum feasible on 4GB VRAM with gradient checkpointing and fp16/bf16."
+        }
+      }
+    },
+    "q3_label_distribution_and_usability": {
+      "question": "3. Is `label` in metadata_labeled.csv a usable ML target, and how is it distributed?",
+      "is_usable_ml_target": true,
+      "target_definition": "5-year Overall Survival (cutoff at 1825 days / 5.0 years)",
+      "caveat": "`label` represents true clinical outcome (5-year survival status from ClinicalData101515.csv), NOT a random synthetic placeholder. However, the logic in datacombibner.py dropped 30 patients: 21 patients right-censored before 5 years (alive with <1825 days follow-up) and 9 patients who lived past 5 years before death (OS >= 1825 and DeadatFollowUp == True). Clinically, patients surviving past 5 years before dying are 5-year survivors and should logically be label 0.",
+      "current_labeled_subset_class_balance": {
+        "total_labeled_patients": 63,
+        "label_1_poor_outcome (died < 5yr)": {
+          "patient_count": 45,
+          "percentage": 71.43,
+          "series_count": 244
+        },
+        "label_0_good_outcome (alive >= 5yr)": {
+          "patient_count": 18,
+          "percentage": 28.57,
+          "series_count": 49
+        },
+        "imbalance_ratio": 2.5
+      },
+      "clinical_cohort_full_breakdown_93_patients": {
+        "died_under_5yr (label 1 in current CSV)": 45,
+        "alive_over_5yr (label 0 in current CSV)": 18,
+        "alive_under_5yr_censored (dropped in current CSV)": 21,
+        "died_over_5yr_survived_5yr (dropped in current CSV)": 9
+      },
+      "clinical_covariates": {
+        "stage_distribution": {
+          "Stage IIIC": 57,
+          "Stage IV": 19,
+          "Stage IC": 6,
+          "Stage IIC": 4,
+          "Stage IIA": 3,
+          "Stage IIIB": 2,
+          "Stage IIIA": 1,
+          "Stage IIB": 1
+        },
+        "residual_disease_distribution": {
+          "< 1 cm": 41,
+          "> 1 cm": 20
+        },
+        "age_stats": {
+          "count": 93,
+          "min": 40.0,
+          "p25": 51.0,
+          "median": 61.0,
+          "mean": 61.1075,
+          "p75": 71.0,
+          "p95": 79.4,
+          "max": 81.0,
+          "std": 11.2168
+        },
+        "os_days_stats": {
+          "count": 93,
+          "min": 9.0,
+          "p25": 619.0,
+          "median": 1209.0,
+          "mean": 1362.9032,
+          "p75": 1993.0,
+          "p95": 2954.6,
+          "max": 3785.0,
+          "std": 904.3548
+        }
+      },
+      "recommendations": [
+        "Binary classification baseline: Use current 63 labeled patients with class weighting (label 1: 71.4%, label 0: 28.6%, ratio ~2.5:1).",
+        "Refined binary label: Re-include the 9 patients who survived >5 years before dying as class 0 (total 72 patients, 45 class 1 vs 27 class 0, ratio 1.67:1).",
+        "Full-cohort survival modeling: Use Cox Proportional Hazards or DeepSurv with continuous OS days and event indicator, retaining all 92 imaging patients."
+      ]
+    },
+    "q4_imaging_clinical_overlap": {
+      "question": "4. How many patients have both imaging and clinical data available?",
+      "patients_with_both_imaging_and_clinical": 92,
+      "total_imaging_patients_on_disk": 92,
+      "total_clinical_patients_in_csv": 93,
+      "imaging_patients_without_clinical_record": {
+        "count": 0,
+        "patient_ids": []
+      },
+      "clinical_patients_without_imaging_on_disk": {
+        "count": 1,
+        "patient_ids": [
+          "TCGA-61-1727"
+        ]
+      },
+      "summary": "Exactly 92 patients have BOTH imaging and clinical data available. 100.0% of the 92 patients with imaging on disk have clinical outcome records. Only 1 patient in ClinicalData101515.csv (['TCGA-61-1727']) has clinical data but lacks imaging on disk."
+    }
+  },
+  "data_quality_and_anomalies": {
+    "corrupt_or_unreadable_dicom_count": 0,
+    "skipped_files_count": 1,
+    "skipped_files_details": [
+      {
+        "path": "DATA/TCGA-OV/LICENSE",
+        "error_type": "InvalidDicomError",
+        "error_message": "File is missing DICOM File Meta Information header or the 'DICM' prefix is missing from the header. Use force=True to force reading."
+      }
+    ],
+    "series_with_variable_slice_shapes": [
+      {
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.254033135981960476654455760070",
+        "patient_id": "TCGA-09-1674",
+        "series_description": "AP SCOUT",
+        "modality": "CT",
+        "num_instances": 2,
+        "path": "DATA/TCGA-OV/TCGA-09-1674/07-29-1999-NA-CT ABD PELV EN-14589/1.000000-AP SCOUT-60070"
+      },
+      {
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.532265595488683047557189627200",
+        "patient_id": "TCGA-13-0762",
+        "series_description": "AP/LAT",
+        "modality": "CT",
+        "num_instances": 2,
+        "path": "DATA/TCGA-OV/TCGA-13-0762/01-18-1994-NA-CT ABPEL W CONTRAST-92881/1.000000-APLAT-27200"
+      },
+      {
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.924854331059995779425328841415",
+        "patient_id": "TCGA-13-0916",
+        "series_description": "CORONALS",
+        "modality": "CT",
+        "num_instances": 127,
+        "path": "DATA/TCGA-OV/TCGA-13-0916/09-09-1994-NA-FOREIGN CT ABPEL-78315/602.000000-CORONALS-41415"
+      },
+      {
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.665402942530716073633394272031",
+        "patient_id": "TCGA-61-2016",
+        "series_description": "SCOUT",
+        "modality": "CT",
+        "num_instances": 2,
+        "path": "DATA/TCGA-OV/TCGA-61-2016/03-26-1995-NA-A-P W-99577/1.000000-SCOUT-72031"
+      },
+      {
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.339504632972981580971981856710",
+        "patient_id": "TCGA-OY-A56Q",
+        "series_description": "Ches Coronal Thin Mips",
+        "modality": "CT",
+        "num_instances": 79,
+        "path": "DATA/TCGA-OV/TCGA-OY-A56Q/12-07-2007-NA-CT CHEST  W CON-87943/3.000000-Ches Coronal Thin Mips-56710"
+      }
+    ]
+  }
+}
