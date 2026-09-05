@@ -5,6 +5,8 @@
 # ── Data & Datasets ─────────────────────────────────────────
 DATA/
 data/processed/
+!data/processed/patient_index.json
+data/processed_mri_exploratory/
 !data/manifests/
 !data/splits/
 !datasets/

@@ -94,3 +94,39 @@ To run the dataset audit and produce `dataset_report.json`:
 ```bash
 python scripts/audit_dataset.py
 ```
+
+---
+
+## 6. Stage 1: Preprocessing, Standardization & Caching
+
+### Resampling Strategy (Mode A vs Mode B)
+Stage 0 revealed severe physical voxel anisotropy in CT series (median z-spacing 5.0mm vs xy-spacing 0.75mm; 6.8:1 ratio).
+- **Mode A (Default Baseline)**: Resamples to a moderately anisotropic target spacing (`1.5mm x 1.5mm x 3.0mm`), then crops/pads to an `80x80x80` voxel grid. This respects native physical slice thickness without manufacturing phantom slices via extreme 1mm interpolation.
+- **Mode B (Ablation)**: Full isotropic resampling to `2.5mm³` followed by crop/pad to `80x80x80`.
+
+### HU Windowing & Intensity Normalization
+- Clipped to standard abdominal soft-tissue window: `[-135, 215]` HU (accounting for 89.2% of non-air voxels).
+- Normalized to `[0.0, 1.0]`.
+
+### Multi-Phase Observation Preservation
+Rather than arbitrarily picking a single volume per patient, studies with multiple contrast phases (e.g. non-contrast, arterial, portal venous, delayed) are cached as separate volumes (`203` total volumes across `92` patients; `64.1%` of patients have multiple observations). This preserves distinct anatomical/functional observations for the patient-level Mamba sequence modeling in Stage 5. Duplicate reconstructions within the same phase are tie-broken by selecting the one with the maximum slice count.
+
+### Patient-Level 5-Fold Cross-Validation (`data/splits/folds_v1.json`)
+- Split strictly at the `patient_id` level (zero data leakage).
+- Stratified on `label_v2` (45:27 cohort; exactly 9 class 1 and 5-6 class 0 per fold).
+- 20 unlabeled survival patients evenly distributed (4 per fold).
+- No static held-out test set initially: given the small cohort (92 patients), reserving 15-20% static test data reduces training sample size excessively; performance is assessed via nested out-of-fold cross-validation.
+
+### Running Stage 1 Pipeline
+```bash
+# 1. Primary series selection
+python preprocessing/series_selection.py
+
+# 2. Generate 5-fold splits & run unit tests
+python scripts/create_splits.py
+pytest tests/test_splits.py -v
+
+# 3. End-to-end preprocessing & caching
+python scripts/preprocess.py --num-workers 6
+```
+

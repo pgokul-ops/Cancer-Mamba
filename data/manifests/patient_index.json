@@ -1,0 +1,3504 @@
+{
+  "TCGA-09-0364": {
+    "patient_id": "TCGA-09-0364",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 887.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 80.0,
+      "stage": "Stage IIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-0364",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.250730721548000739633557298354",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.115512319570807352125051359179",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-09-0364/633557298354_125051359179.pt",
+        "num_slices": 66,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-0367": {
+    "patient_id": "TCGA-09-0367",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 547.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 67.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-0367",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.737290324380432169994401897360",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.216659266257116305291531016809",
+        "role_tag": "primary_routine",
+        "series_description": "Summary Series",
+        "cached_path": "data/processed/TCGA-09-0367/994401897360_291531016809.pt",
+        "num_slices": 21,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-0367",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.737290324380432169994401897360",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.198181307984361951201091508675",
+        "role_tag": "delayed",
+        "series_description": "DELAYED",
+        "cached_path": "data/processed/TCGA-09-0367/994401897360_201091508675.pt",
+        "num_slices": 82,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-0367",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.737290324380432169994401897360",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.291934572894871705975874475499",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "3ML/SEC ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-09-0367/994401897360_975874475499.pt",
+        "num_slices": 82,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1659": {
+    "patient_id": "TCGA-09-1659",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 304.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1659",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.286149856176003081432188653015",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.311446287205651965507667614413",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-09-1659/432188653015_507667614413.pt",
+        "num_slices": 69,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1667": {
+    "patient_id": "TCGA-09-1667",
+    "fold": 4,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2500.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 61.0,
+      "stage": "Stage IIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1667",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.324475281161490036195179843543",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.122306288611710500792112757740",
+        "role_tag": "primary_routine",
+        "series_description": "5MM HELICAL",
+        "cached_path": "data/processed/TCGA-09-1667/195179843543_792112757740.pt",
+        "num_slices": 76,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1669": {
+    "patient_id": "TCGA-09-1669",
+    "fold": 0,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 928.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 54.0,
+      "stage": "Stage IIIA",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1669",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.363184881142941112670144166445",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.544991769337026614686222367718",
+        "role_tag": "primary_routine",
+        "series_description": "5MM HELICAL",
+        "cached_path": "data/processed/TCGA-09-1669/670144166445_686222367718.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1672": {
+    "patient_id": "TCGA-09-1672",
+    "fold": 0,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 178.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 78.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1672",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.871548091071567490754068450983",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.143188320772015802963277389121",
+        "role_tag": "primary_routine",
+        "series_description": "WITH",
+        "cached_path": "data/processed/TCGA-09-1672/754068450983_963277389121.pt",
+        "num_slices": 208,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1673": {
+    "patient_id": "TCGA-09-1673",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 92.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 50.0,
+      "stage": "Stage IV",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1673",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.707927397030828241442402878962",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.653915627746689736448242897411",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": ",CE,Axial,5.0,,,",
+        "cached_path": "data/processed/TCGA-09-1673/442402878962_448242897411.pt",
+        "num_slices": 89,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-1674": {
+    "patient_id": "TCGA-09-1674",
+    "fold": 2,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 1825.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 79.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-1674",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.258209828505102932552348814589",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.276576739463063473687088361172",
+        "role_tag": "primary_routine",
+        "series_description": "5MM HELICAL",
+        "cached_path": "data/processed/TCGA-09-1674/552348814589_687088361172.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2043": {
+    "patient_id": "TCGA-09-2043",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 188.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 69.0,
+      "stage": "Stage IC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2043",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.179858508681685311012277612438",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.336410365477730508296505019428",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": ",CE,Vol,1.0,Vol.,WITH CE,",
+        "cached_path": "data/processed/TCGA-09-2043/012277612438_296505019428.pt",
+        "num_slices": 597,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2044": {
+    "patient_id": "TCGA-09-2044",
+    "fold": 0,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 1825.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 77.0,
+      "stage": "Stage IIB",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2044",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.192275693252436217182191596774",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.308257434883188597729246801603",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS   ROUTINE",
+        "cached_path": "data/processed/TCGA-09-2044/182191596774_729246801603.pt",
+        "num_slices": 81,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2045": {
+    "patient_id": "TCGA-09-2045",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1069.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 50.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2045",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.136836036689183420623245763113",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.125519796440311850674691789241",
+        "role_tag": "primary_routine",
+        "series_description": "AXIALS",
+        "cached_path": "data/processed/TCGA-09-2045/623245763113_674691789241.pt",
+        "num_slices": 56,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2050": {
+    "patient_id": "TCGA-09-2050",
+    "fold": 4,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2163.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 65.0,
+      "stage": "Stage IIA",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2050",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.202310931164972868585994814545",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.152273649918555477428311648083",
+        "role_tag": "primary_routine",
+        "series_description": "HELICAL 5MM",
+        "cached_path": "data/processed/TCGA-09-2050/585994814545_428311648083.pt",
+        "num_slices": 87,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2051": {
+    "patient_id": "TCGA-09-2051",
+    "fold": 1,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 3650.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 42.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2051",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.276045886850537484376510382700",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.106612421738666576454497577993",
+        "role_tag": "chest_std",
+        "series_description": "CONTRAST CHEST",
+        "cached_path": "data/processed/TCGA-09-2051/376510382700_454497577993.pt",
+        "num_slices": 50,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-2051",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.276045886850537484376510382700",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.315918915592835066540255290092",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "CONTRAST ABD/PEL",
+        "cached_path": "data/processed/TCGA-09-2051/376510382700_540255290092.pt",
+        "num_slices": 87,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2053": {
+    "patient_id": "TCGA-09-2053",
+    "fold": 3,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1209.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 72.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2053",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.139055306364868150970867771581",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.304323406422883751797699736025",
+        "role_tag": "non_contrast",
+        "series_description": "NON CON ABD",
+        "cached_path": "data/processed/TCGA-09-2053/970867771581_797699736025.pt",
+        "num_slices": 77,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-2053",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.139055306364868150970867771581",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.182422478107014590946889920346",
+        "role_tag": "primary_routine",
+        "series_description": "CHEST/ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-09-2053/970867771581_946889920346.pt",
+        "num_slices": 179,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2054": {
+    "patient_id": "TCGA-09-2054",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 637.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 58.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2054",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.161991182121956929633512022043",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.328853072781058583043076313438",
+        "role_tag": "primary_routine",
+        "series_description": "ROUTINE ABD-PELVIS",
+        "cached_path": "data/processed/TCGA-09-2054/633512022043_043076313438.pt",
+        "num_slices": 83,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-09-2055": {
+    "patient_id": "TCGA-09-2055",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 819.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 48.0,
+      "stage": "Stage IC",
+      "residual_disease": null
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-09-2055",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.221365772167559741364757138384",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.158946851920713574553367879381",
+        "role_tag": "non_contrast",
+        "series_description": "Abd w/o 5.0 B30f",
+        "cached_path": "data/processed/TCGA-09-2055/364757138384_553367879381.pt",
+        "num_slices": 94,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-2055",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.221365772167559741364757138384",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.900196864682586841523571385464",
+        "role_tag": "arterial",
+        "series_description": "Arterial phase 3.0 B30f",
+        "cached_path": "data/processed/TCGA-09-2055/364757138384_523571385464.pt",
+        "num_slices": 179,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-2055",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.221365772167559741364757138384",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.296278524048533497947544111429",
+        "role_tag": "delayed",
+        "series_description": "DELAY 5.0 B30f",
+        "cached_path": "data/processed/TCGA-09-2055/364757138384_947544111429.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-09-2055",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.221365772167559741364757138384",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7695.4007.167777410371031196468887302853",
+        "role_tag": "portal_venous",
+        "series_description": "Venous phase 5.0 B30f",
+        "cached_path": "data/processed/TCGA-09-2055/364757138384_468887302853.pt",
+        "num_slices": 194,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0720": {
+    "patient_id": "TCGA-13-0720",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1355.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 48.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0720",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.127776173339686571842300199047",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.126731394301329901871127252305",
+        "role_tag": "primary_routine",
+        "series_description": "CT ABD/PEL",
+        "cached_path": "data/processed/TCGA-13-0720/842300199047_871127252305.pt",
+        "num_slices": 67,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0724": {
+    "patient_id": "TCGA-13-0724",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 83.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 72.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0724",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.260800943658181126115713624442",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.233998845050034532743677511293",
+        "role_tag": "primary_routine",
+        "series_description": "CHEST/ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-13-0724/115713624442_743677511293.pt",
+        "num_slices": 85,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0761": {
+    "patient_id": "TCGA-13-0761",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1156.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IV",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0761",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.711462659201820306009665929060",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.206144856470283932326700477078",
+        "role_tag": "primary_routine",
+        "series_description": "Recon 2: Axials",
+        "cached_path": "data/processed/TCGA-13-0761/009665929060_326700477078.pt",
+        "num_slices": 522,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0762": {
+    "patient_id": "TCGA-13-0762",
+    "fold": 4,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 3400.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 65.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0762",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.102792305142840038975272592881",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.276308957699372120873071847640",
+        "role_tag": "primary_routine",
+        "series_description": "CT ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-13-0762/975272592881_873071847640.pt",
+        "num_slices": 78,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0768": {
+    "patient_id": "TCGA-13-0768",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1784.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 73.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0768",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.153614817082169438599076248514",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.708938832105752112501330266837",
+        "role_tag": "delayed",
+        "series_description": "KIDNEY DELAY",
+        "cached_path": "data/processed/TCGA-13-0768/599076248514_501330266837.pt",
+        "num_slices": 24,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0768",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.153614817082169438599076248514",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.189626577268487894368060932073",
+        "role_tag": "primary_routine",
+        "series_description": "ABDOMEN /PELVIS",
+        "cached_path": "data/processed/TCGA-13-0768/599076248514_368060932073.pt",
+        "num_slices": 85,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0793": {
+    "patient_id": "TCGA-13-0793",
+    "fold": 0,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 3263.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 40.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0793",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.340053467605869906242676992241",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.298959966651181652287371738782",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "CHEST ABD PEL W/ CONTRAST",
+        "cached_path": "data/processed/TCGA-13-0793/242676992241_287371738782.pt",
+        "num_slices": 119,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0793",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.340053467605869906242676992241",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.210268204583255167006464927393",
+        "role_tag": "lung_window",
+        "series_description": "1.25 lung",
+        "cached_path": "data/processed/TCGA-13-0793/242676992241_006464927393.pt",
+        "num_slices": 227,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0794": {
+    "patient_id": "TCGA-13-0794",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 1919.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 60.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0794",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.130922056182546718273630827698",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.181170708217825538561233183618",
+        "role_tag": "primary_routine",
+        "series_description": "ABD / PEL  6.0  B40s",
+        "cached_path": "data/processed/TCGA-13-0794/273630827698_561233183618.pt",
+        "num_slices": 74,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0794",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.130922056182546718273630827698",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.323987504997750140213354035355",
+        "role_tag": "delayed",
+        "series_description": "DELAY  6.0  B40s",
+        "cached_path": "data/processed/TCGA-13-0794/273630827698_213354035355.pt",
+        "num_slices": 67,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0795": {
+    "patient_id": "TCGA-13-0795",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 619.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 66.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0795",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.190064743846458857658304328631",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.356197576639957673298502608883",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - GASTRO & OPTI",
+        "cached_path": "data/processed/TCGA-13-0795/658304328631_298502608883.pt",
+        "num_slices": 94,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0797": {
+    "patient_id": "TCGA-13-0797",
+    "fold": 2,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2121.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 49.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0797",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.225646531152039932408077854270",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.330872404314532524976041830564",
+        "role_tag": "primary_routine",
+        "series_description": "Abd/PelvisRout  5.0  B40f",
+        "cached_path": "data/processed/TCGA-13-0797/408077854270_976041830564.pt",
+        "num_slices": 102,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0799": {
+    "patient_id": "TCGA-13-0799",
+    "fold": 3,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2535.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 44.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0799",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.156298252933263027210643873180",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.314477369004140045677323287679",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-0799/210643873180_677323287679.pt",
+        "num_slices": 130,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0800": {
+    "patient_id": "TCGA-13-0800",
+    "fold": 3,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2661.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 52.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0800",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.807269963048032336271344795188",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.141613309336777109173793375194",
+        "role_tag": "primary_routine",
+        "series_description": "ABDPEL W",
+        "cached_path": "data/processed/TCGA-13-0800/271344795188_173793375194.pt",
+        "num_slices": 101,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0802": {
+    "patient_id": "TCGA-13-0802",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1552.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 79.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0802",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.805679907799830111086837498479",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.128308905045116261591485562146",
+        "role_tag": "delayed",
+        "series_description": "Kidney Delay",
+        "cached_path": "data/processed/TCGA-13-0802/086837498479_591485562146.pt",
+        "num_slices": 27,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0802",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.805679907799830111086837498479",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.148607466566623956475688461000",
+        "role_tag": "chest_std",
+        "series_description": "Chest(Std)",
+        "cached_path": "data/processed/TCGA-13-0802/086837498479_475688461000.pt",
+        "num_slices": 48,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0802",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.805679907799830111086837498479",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.415258933383249258856311222180",
+        "role_tag": "lung_window",
+        "series_description": "Lung",
+        "cached_path": "data/processed/TCGA-13-0802/086837498479_856311222180.pt",
+        "num_slices": 47,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0802",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.805679907799830111086837498479",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.140319247482817820518619511478",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "ABD/PEL C+",
+        "cached_path": "data/processed/TCGA-13-0802/086837498479_518619511478.pt",
+        "num_slices": 82,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0807": {
+    "patient_id": "TCGA-13-0807",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 414.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 54.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0807",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.114410327570607201828884162989",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.158924363974402984430721114950",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - OMNI",
+        "cached_path": "data/processed/TCGA-13-0807/828884162989_430721114950.pt",
+        "num_slices": 146,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0807",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.114410327570607201828884162989",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.117922260284660355545671994419",
+        "role_tag": "primary_routine",
+        "series_description": "Recon 3:",
+        "cached_path": "data/processed/TCGA-13-0807/828884162989_545671994419.pt",
+        "num_slices": 226,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0883": {
+    "patient_id": "TCGA-13-0883",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2097.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 61.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0883",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.317191543586366657973885836272",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.324941369137192054163445809829",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - GASTRO & OMNI",
+        "cached_path": "data/processed/TCGA-13-0883/973885836272_163445809829.pt",
+        "num_slices": 66,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0904": {
+    "patient_id": "TCGA-13-0904",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1532.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 63.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0904",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.334282382025062463576268146305",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.878387031660381661432877930758",
+        "role_tag": "primary_routine",
+        "series_description": "CT AB/PEL",
+        "cached_path": "data/processed/TCGA-13-0904/576268146305_432877930758.pt",
+        "num_slices": 100,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0911": {
+    "patient_id": "TCGA-13-0911",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1355.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 55.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0911",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.518079966410374884701921846440",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.132173138503002263418642921323",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - BARIUM & 100CC ISOVUE300",
+        "cached_path": "data/processed/TCGA-13-0911/701921846440_418642921323.pt",
+        "num_slices": 81,
+        "file_size_bytes": 2050407
+      },
+      {
+        "patient_id": "TCGA-13-0911",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.518079966410374884701921846440",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.679699465902294155216314625198",
+        "role_tag": "non_contrast",
+        "series_description": "Contrast - NONE",
+        "cached_path": "data/processed/TCGA-13-0911/701921846440_216314625198.pt",
+        "num_slices": 72,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0916": {
+    "patient_id": "TCGA-13-0916",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1785.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 49.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0916",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.213396938693024695727641678315",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.107289787102527697339206349762",
+        "role_tag": "primary_routine",
+        "series_description": "AbdRoutine  5.0  B41s  FOR MPR",
+        "cached_path": "data/processed/TCGA-13-0916/727641678315_339206349762.pt",
+        "num_slices": 186,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0920": {
+    "patient_id": "TCGA-13-0920",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1484.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 65.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0920",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.303041782038071760740329697768",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.545430908327240503830163577591",
+        "role_tag": "delayed",
+        "series_description": "DELAYED IMAGES",
+        "cached_path": "data/processed/TCGA-13-0920/740329697768_830163577591.pt",
+        "num_slices": 74,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0920",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.303041782038071760740329697768",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.286518918293270841438707002788",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "WITH CONTRAST",
+        "cached_path": "data/processed/TCGA-13-0920/740329697768_438707002788.pt",
+        "num_slices": 201,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0921": {
+    "patient_id": "TCGA-13-0921",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1483.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 72.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0921",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.325072362403404699506349496293",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.334823427713234171825269509535",
+        "role_tag": "primary_routine",
+        "series_description": "5 MIN DEelay 5.0 B30s",
+        "cached_path": "data/processed/TCGA-13-0921/506349496293_825269509535.pt",
+        "num_slices": 41,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0921",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.325072362403404699506349496293",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.597646180928523964821534303356",
+        "role_tag": "delayed",
+        "series_description": "70 secdelay 5.0 B30s",
+        "cached_path": "data/processed/TCGA-13-0921/506349496293_821534303356.pt",
+        "num_slices": 86,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-0924": {
+    "patient_id": "TCGA-13-0924",
+    "fold": 0,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2614.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 45.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-0924",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.241571526315324118682385634708",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.388382881641616232820616028437",
+        "role_tag": "delayed",
+        "series_description": "DELAY  5.0  B31f",
+        "cached_path": "data/processed/TCGA-13-0924/682385634708_820616028437.pt",
+        "num_slices": 79,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-0924",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.241571526315324118682385634708",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.154031326324228262907704610361",
+        "role_tag": "primary_routine",
+        "series_description": "A/P W/  5.0  B31f",
+        "cached_path": "data/processed/TCGA-13-0924/682385634708_907704610361.pt",
+        "num_slices": 100,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1405": {
+    "patient_id": "TCGA-13-1405",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 868.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 49.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1405",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.185456746294436147812862215807",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.260669554700340346661612009362",
+        "role_tag": "lung_window",
+        "series_description": "LUNGS",
+        "cached_path": "data/processed/TCGA-13-1405/812862215807_661612009362.pt",
+        "num_slices": 47,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1405",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.185456746294436147812862215807",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.116097532223521073182086253405",
+        "role_tag": "primary_routine",
+        "series_description": "CH/ABD/PEL",
+        "cached_path": "data/processed/TCGA-13-1405/812862215807_182086253405.pt",
+        "num_slices": 134,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1408": {
+    "patient_id": "TCGA-13-1408",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1680.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 59.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1408",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.172608987678439311290503943753",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.248154618404090934168213371118",
+        "role_tag": "primary_routine",
+        "series_description": "Post",
+        "cached_path": "data/processed/TCGA-13-1408/290503943753_168213371118.pt",
+        "num_slices": 208,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1409": {
+    "patient_id": "TCGA-13-1409",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1742.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 73.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1409",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.468450290930288023941752540679",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.100625367321414093913378133573",
+        "role_tag": "primary_routine",
+        "series_description": "AbdPelvis  5.0  B31s",
+        "cached_path": "data/processed/TCGA-13-1409/941752540679_913378133573.pt",
+        "num_slices": 88,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1410": {
+    "patient_id": "TCGA-13-1410",
+    "fold": 0,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2464.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 57.0,
+      "stage": "Stage IV",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1410",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.975662697493173690185160468133",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.652084833437728572018249345037",
+        "role_tag": "primary_routine",
+        "series_description": "AB/PEL W/C",
+        "cached_path": "data/processed/TCGA-13-1410/185160468133_018249345037.pt",
+        "num_slices": 218,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1411": {
+    "patient_id": "TCGA-13-1411",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 531.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 81.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1411",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.304472322313714233951794016039",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.253428195984302083417174509062",
+        "role_tag": "delayed",
+        "series_description": "DELAY  5.0  B30f",
+        "cached_path": "data/processed/TCGA-13-1411/951794016039_417174509062.pt",
+        "num_slices": 60,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1411",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.304472322313714233951794016039",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.339363990171203203061584735761",
+        "role_tag": "primary_routine",
+        "series_description": "Abd / Pel-  5.0  B30f",
+        "cached_path": "data/processed/TCGA-13-1411/951794016039_061584735761.pt",
+        "num_slices": 103,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1412": {
+    "patient_id": "TCGA-13-1412",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 984.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 41.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1412",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.180806317598234441621929853419",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.183732638460368253295665667373",
+        "role_tag": "delayed",
+        "series_description": "Recon 2: delay pelvic",
+        "cached_path": "data/processed/TCGA-13-1412/621929853419_295665667373.pt",
+        "num_slices": 60,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1412",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.180806317598234441621929853419",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.255174310552142665714524147524",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Recon 2: ABDOMEN PELVIS C+",
+        "cached_path": "data/processed/TCGA-13-1412/621929853419_714524147524.pt",
+        "num_slices": 126,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1484": {
+    "patient_id": "TCGA-13-1484",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 3785.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 62.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1484",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.766400094975475706021726209626",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.624561083715729917122985354765",
+        "role_tag": "primary_routine",
+        "series_description": "Recon 2:",
+        "cached_path": "data/processed/TCGA-13-1484/021726209626_122985354765.pt",
+        "num_slices": 43,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1484",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.766400094975475706021726209626",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.200050885594760980287897152321",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - GASTRO & ULTRA",
+        "cached_path": "data/processed/TCGA-13-1484/021726209626_287897152321.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1488": {
+    "patient_id": "TCGA-13-1488",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2154.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 59.0,
+      "stage": "Stage IV",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1488",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.233559450171614048916479918823",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.286535445658993408839277820537",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast - GASTRO & OMNI",
+        "cached_path": "data/processed/TCGA-13-1488/916479918823_839277820537.pt",
+        "num_slices": 63,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1495": {
+    "patient_id": "TCGA-13-1495",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2749.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 60.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1495",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.110129790625020955786130015979",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.328371306679480113787579652978",
+        "role_tag": "primary_routine",
+        "series_description": "CT ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-13-1495/786130015979_787579652978.pt",
+        "num_slices": 61,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1499": {
+    "patient_id": "TCGA-13-1499",
+    "fold": 1,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 3500.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 56.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1499",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.575641990488001073083047561054",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.188443173090943796617287112808",
+        "role_tag": "lung_window",
+        "series_description": "LUNGS",
+        "cached_path": "data/processed/TCGA-13-1499/083047561054_617287112808.pt",
+        "num_slices": 60,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1499",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.575641990488001073083047561054",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.230636498433119642575675422105",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-1499/083047561054_575675422105.pt",
+        "num_slices": 130,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1504": {
+    "patient_id": "TCGA-13-1504",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1059.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 68.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1504",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.107225085018428492152614916489",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.304277390592235054246172081167",
+        "role_tag": "primary_routine",
+        "series_description": "A/P POST",
+        "cached_path": "data/processed/TCGA-13-1504/152614916489_246172081167.pt",
+        "num_slices": 113,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1505": {
+    "patient_id": "TCGA-13-1505",
+    "fold": 2,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 1998.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 63.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1505",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.293280873274123544560375816547",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.192171430524312507807530237906",
+        "role_tag": "lung_window",
+        "series_description": "LUNG RECONS",
+        "cached_path": "data/processed/TCGA-13-1505/560375816547_807530237906.pt",
+        "num_slices": 59,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1505",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.293280873274123544560375816547",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.149865394369480490065455287347",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-1505/560375816547_065455287347.pt",
+        "num_slices": 127,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1506": {
+    "patient_id": "TCGA-13-1506",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1039.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 45.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1506",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.268571263660441803648401007819",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.614377524245853198956065823185",
+        "role_tag": "delayed",
+        "series_description": "DELAYS 5MM",
+        "cached_path": "data/processed/TCGA-13-1506/648401007819_956065823185.pt",
+        "num_slices": 42,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1506",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.268571263660441803648401007819",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.320795897396798690572905684276",
+        "role_tag": "primary_routine",
+        "series_description": "W/ 5MM",
+        "cached_path": "data/processed/TCGA-13-1506/648401007819_572905684276.pt",
+        "num_slices": 91,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1507": {
+    "patient_id": "TCGA-13-1507",
+    "fold": 3,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 1993.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 77.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1507",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.182912622607713710734444269951",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.689075463467366444081086406419",
+        "role_tag": "lung_window",
+        "series_description": "LUNGS",
+        "cached_path": "data/processed/TCGA-13-1507/734444269951_081086406419.pt",
+        "num_slices": 50,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1507",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.182912622607713710734444269951",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.108212435726757705042083023097",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-1507/734444269951_042083023097.pt",
+        "num_slices": 124,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1509": {
+    "patient_id": "TCGA-13-1509",
+    "fold": 0,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2438.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 64.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1509",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.453030550664900066646919661150",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.208359301678964702150057008982",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "CONTRAST ABD/PELVIS 5MM",
+        "cached_path": "data/processed/TCGA-13-1509/646919661150_150057008982.pt",
+        "num_slices": 88,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-1511": {
+    "patient_id": "TCGA-13-1511",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1650.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 52.0,
+      "stage": "Stage IV",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-1511",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.153563476249720655102697249159",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.255132949737389197060466792354",
+        "role_tag": "lung_window",
+        "series_description": "LUNG RECONS",
+        "cached_path": "data/processed/TCGA-13-1511/102697249159_060466792354.pt",
+        "num_slices": 47,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-1511",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.153563476249720655102697249159",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.301673731286888133502263193847",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-1511/102697249159_502263193847.pt",
+        "num_slices": 127,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-2057": {
+    "patient_id": "TCGA-13-2057",
+    "fold": 3,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2434.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 59.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-2057",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.692691516343688611083109682836",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.200038567251312491688959947595",
+        "role_tag": "lung_window",
+        "series_description": "5X5 LUNGS",
+        "cached_path": "data/processed/TCGA-13-2057/083109682836_688959947595.pt",
+        "num_slices": 61,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-2057",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.692691516343688611083109682836",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.883451832165609048682725641793",
+        "role_tag": "primary_routine",
+        "series_description": "CHEST/ABD/PEL 5X5",
+        "cached_path": "data/processed/TCGA-13-2057/083109682836_682725641793.pt",
+        "num_slices": 124,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-2059": {
+    "patient_id": "TCGA-13-2059",
+    "fold": 1,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2387.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 50.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-2059",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.159994864795822277489459854407",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.291823580151074528212836893287",
+        "role_tag": "lung_window",
+        "series_description": "LUNGS",
+        "cached_path": "data/processed/TCGA-13-2059/489459854407_212836893287.pt",
+        "num_slices": 65,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-2059",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.159994864795822277489459854407",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.977858464026340350440965430362",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-2059/489459854407_440965430362.pt",
+        "num_slices": 138,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-2060": {
+    "patient_id": "TCGA-13-2060",
+    "fold": 3,
+    "label_v1": 0,
+    "label_v2": 0,
+    "survival_duration_days": 2369.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-2060",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.752211670010117033098263737725",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.177998590287803790868375533946",
+        "role_tag": "primary_routine",
+        "series_description": "Post",
+        "cached_path": "data/processed/TCGA-13-2060/098263737725_868375533946.pt",
+        "num_slices": 171,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-2066": {
+    "patient_id": "TCGA-13-2066",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2133.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 49.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-2066",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.311594223016828733574774577293",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.213381769926251342641773733146",
+        "role_tag": "lung_window",
+        "series_description": "LUNGS",
+        "cached_path": "data/processed/TCGA-13-2066/574774577293_641773733146.pt",
+        "num_slices": 62,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-2066",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.311594223016828733574774577293",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.304284860417870946000368648147",
+        "role_tag": "primary_routine",
+        "series_description": "CT CH/AB/PEL",
+        "cached_path": "data/processed/TCGA-13-2066/574774577293_000368648147.pt",
+        "num_slices": 135,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-13-2071": {
+    "patient_id": "TCGA-13-2071",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 773.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 63.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-13-2071",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.269100931850447552400234562699",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.424209688933118306489819959878",
+        "role_tag": "lung_window",
+        "series_description": "LUNG WINDOWS",
+        "cached_path": "data/processed/TCGA-13-2071/400234562699_489819959878.pt",
+        "num_slices": 22,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-13-2071",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.269100931850447552400234562699",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.9203.4007.232952717580346632614560770716",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PEL C ORAL/IV",
+        "cached_path": "data/processed/TCGA-13-2071/400234562699_614560770716.pt",
+        "num_slices": 95,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-0966": {
+    "patient_id": "TCGA-24-0966",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 776.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 78.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-0966",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.330693106714486038689985553091",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.334594930571411617120709912747",
+        "role_tag": "lung_window",
+        "series_description": "Chest/Abd/Pel LUNG 5.0  B60f",
+        "cached_path": "data/processed/TCGA-24-0966/689985553091_120709912747.pt",
+        "num_slices": 51,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-0966",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.330693106714486038689985553091",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.604224299502780962816026959403",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel ST 5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-0966/689985553091_816026959403.pt",
+        "num_slices": 114,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-0966",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.662271560962060874759797180023",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.199247111106739727621563715558",
+        "role_tag": "primary_routine",
+        "series_description": "PE  1.0  B20f",
+        "cached_path": "data/processed/TCGA-24-0966/759797180023_621563715558.pt",
+        "num_slices": 268,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1103": {
+    "patient_id": "TCGA-24-1103",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1646.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 50.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1103",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.287113235960084016495206875743",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.279524734055049424834185007765",
+        "role_tag": "chest_std",
+        "series_description": "Chest #1",
+        "cached_path": "data/processed/TCGA-24-1103/495206875743_834185007765.pt",
+        "num_slices": 45,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1103",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.221202471839678101724039828915",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.746325973371971715343576006904",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-1103/724039828915_343576006904.pt",
+        "num_slices": 53,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1103",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.287113235960084016495206875743",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.161909408289893960717643028468",
+        "role_tag": "primary_routine",
+        "series_description": "Abd/Pelvis #1",
+        "cached_path": "data/processed/TCGA-24-1103/495206875743_717643028468.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1413": {
+    "patient_id": "TCGA-24-1413",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2202.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1413",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.450515675203519711940743472950",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.301780782874599210868525918656",
+        "role_tag": "lung_window",
+        "series_description": "Chest/Abd/Pel LUNG 5.0  B60f",
+        "cached_path": "data/processed/TCGA-24-1413/940743472950_868525918656.pt",
+        "num_slices": 47,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1413",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.342696730183401919678018094126",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.113400343148026614505843152425",
+        "role_tag": "primary_routine",
+        "series_description": "CAP  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1413/678018094126_505843152425.pt",
+        "num_slices": 123,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1413",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.450515675203519711940743472950",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.145321142435712189794356824065",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel ST 5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1413/940743472950_794356824065.pt",
+        "num_slices": 122,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1418": {
+    "patient_id": "TCGA-24-1418",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1712.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 68.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1418",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.250424249692523051811756219642",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.117233517623350312723853364086",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PEL  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1418/811756219642_723853364086.pt",
+        "num_slices": 86,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1418",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.765778661688311590597051612632",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.119695025385667391066052984564",
+        "role_tag": "primary_routine",
+        "series_description": "Abd/Pel  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1418/597051612632_066052984564.pt",
+        "num_slices": 89,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1418",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.344551669117904456757917311447",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.315764031952729159624951662434",
+        "role_tag": "primary_routine",
+        "series_description": "PE  1.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1418/757917311447_624951662434.pt",
+        "num_slices": 223,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1418",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.797813998447510795423007106774",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.167602098362615694209127316695",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pe 5.0 B20f",
+        "cached_path": "data/processed/TCGA-24-1418/423007106774_209127316695.pt",
+        "num_slices": 122,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1423": {
+    "patient_id": "TCGA-24-1423",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 190.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 61.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1423",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.211857468845722226493168335606",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.323297723576173454626055379377",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS  5.0  B10s",
+        "cached_path": "data/processed/TCGA-24-1423/493168335606_626055379377.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1423",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.207099377675611913572950287222",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.287978541705211357222193962912",
+        "role_tag": "primary_routine",
+        "series_description": "CAP  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1423/572950287222_222193962912.pt",
+        "num_slices": 129,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1425": {
+    "patient_id": "TCGA-24-1425",
+    "fold": 0,
+    "label_v1": null,
+    "label_v2": 0,
+    "survival_duration_days": 2277.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 45.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1425",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.219793542293845947341327208811",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.390457005448421365213333214527",
+        "role_tag": "primary_routine",
+        "series_description": "C/A/P  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1425/341327208811_213333214527.pt",
+        "num_slices": 131,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1425",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.290698232815991773879247687325",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.196871988009745472118080491379",
+        "role_tag": "primary_routine",
+        "series_description": "PE  1.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1425/879247687325_118080491379.pt",
+        "num_slices": 262,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1427": {
+    "patient_id": "TCGA-24-1427",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 147.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 58.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1427",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.296511158421214384193093434351",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.283251500720494034680561533460",
+        "role_tag": "lung_window",
+        "series_description": "Chest/Abd/Pel LUNG 5.0  B60f",
+        "cached_path": "data/processed/TCGA-24-1427/193093434351_680561533460.pt",
+        "num_slices": 55,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1427",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.193284224192744518061750601214",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.276939884885529319125213738672",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel  5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1427/061750601214_125213738672.pt",
+        "num_slices": 130,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1427",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.296511158421214384193093434351",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.155278540761883045417350336113",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel ST 5.0  B20f",
+        "cached_path": "data/processed/TCGA-24-1427/193093434351_417350336113.pt",
+        "num_slices": 133,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1614": {
+    "patient_id": "TCGA-24-1614",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1470.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 57.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1614",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.171624834181791465393622314389",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.183751804481093320928052170241",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-1614/393622314389_928052170241.pt",
+        "num_slices": 27,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1614",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.182590000969230958327481078894",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.170800798847339157254166938540",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-1614/327481078894_254166938540.pt",
+        "num_slices": 53,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-1616": {
+    "patient_id": "TCGA-24-1616",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1163.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 56.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-1616",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.262798793382592032588066741679",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.405081260302376012909435533931",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-1616/588066741679_909435533931.pt",
+        "num_slices": 56,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-1616",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.280989607595683710112570450780",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.294134127138853960159149650873",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-1616/112570450780_159149650873.pt",
+        "num_slices": 63,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-24-2254": {
+    "patient_id": "TCGA-24-2254",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1736.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 66.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-24-2254",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.123291828750741854639731587679",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.146095843488092809180160741301",
+        "role_tag": "primary_routine",
+        "series_description": "Abd-Pelvis 5.0 B20f",
+        "cached_path": "data/processed/TCGA-24-2254/639731587679_180160741301.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-24-2254",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.211208574129880251663564628943",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.7777.4007.293563172568387478060045772793",
+        "role_tag": "primary_routine",
+        "series_description": "",
+        "cached_path": "data/processed/TCGA-24-2254/663564628943_060045772793.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1313": {
+    "patient_id": "TCGA-25-1313",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 820.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 62.0,
+      "stage": "Stage IV",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 5,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1313",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.997523189089147222229638448310",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.213146513441924578709560646602",
+        "role_tag": "non_contrast",
+        "series_description": "Contrast/Bolus Agent: NONE",
+        "cached_path": "data/processed/TCGA-25-1313/229638448310_709560646602.pt",
+        "num_slices": 22,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1313",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.177051335839717001129751250206",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.208957752477016123849696472716",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: non ionic",
+        "cached_path": "data/processed/TCGA-25-1313/129751250206_849696472716.pt",
+        "num_slices": 84,
+        "file_size_bytes": 2050407
+      },
+      {
+        "patient_id": "TCGA-25-1313",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.296919031124957861277759792348",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.149939400373985577518612682026",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: nonionic",
+        "cached_path": "data/processed/TCGA-25-1313/277759792348_518612682026.pt",
+        "num_slices": 63,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1313",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.997523189089147222229638448310",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.198427072319467700247245580892",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: +C",
+        "cached_path": "data/processed/TCGA-25-1313/229638448310_247245580892.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1313",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.106769226281530831279564557178",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.103926998494069910797532322858",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: NONIONIC",
+        "cached_path": "data/processed/TCGA-25-1313/279564557178_797532322858.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1317": {
+    "patient_id": "TCGA-25-1317",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 61.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 66.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1317",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.301974051097412796402962053056",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.180845494368621491896964231692",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: NI",
+        "cached_path": "data/processed/TCGA-25-1317/402962053056_896964231692.pt",
+        "num_slices": 54,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1317",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.301974051097412796402962053056",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.842104927220627848286099096399",
+        "role_tag": "non_contrast",
+        "series_description": "Contrast/Bolus Agent: NONE",
+        "cached_path": "data/processed/TCGA-25-1317/402962053056_286099096399.pt",
+        "num_slices": 25,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1323": {
+    "patient_id": "TCGA-25-1323",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 395.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 72.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1323",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.103343958495721037229569753715",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.960036122209051825487695270290",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: NONIONIC",
+        "cached_path": "data/processed/TCGA-25-1323/229569753715_487695270290.pt",
+        "num_slices": 78,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1323",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.849176790882138975631220871161",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.364337473777234809196391358145",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: NONIONIC",
+        "cached_path": "data/processed/TCGA-25-1323/631220871161_196391358145.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1325": {
+    "patient_id": "TCGA-25-1325",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 976.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 77.0,
+      "stage": "Stage IV",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1325",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.196331031360550662149235803131",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.249747490190343534415398089153",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: NON IONIC",
+        "cached_path": "data/processed/TCGA-25-1325/149235803131_415398089153.pt",
+        "num_slices": 174,
+        "file_size_bytes": 2050407
+      }
+    ]
+  },
+  "TCGA-25-1623": {
+    "patient_id": "TCGA-25-1623",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 565.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 71.0,
+      "stage": "Stage IV",
+      "residual_disease": null
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1623",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.406151742975333720630308766816",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.326660530780757673561202908901",
+        "role_tag": "chest_std",
+        "series_description": "Chest MIP axial",
+        "cached_path": "data/processed/TCGA-25-1623/630308766816_561202908901.pt",
+        "num_slices": 28,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1623",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.157737592845069317009471113465",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.261774349945592853616488142077",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1623/009471113465_616488142077.pt",
+        "num_slices": 99,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1623",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.406151742975333720630308766816",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.603751675015287830187018723677",
+        "role_tag": "primary_routine",
+        "series_description": "CAP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1623/630308766816_187018723677.pt",
+        "num_slices": 128,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1631": {
+    "patient_id": "TCGA-25-1631",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 9.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 73.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1631",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.181564049411445272074536701212",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.192126543704813737544246800068",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-1631/074536701212_544246800068.pt",
+        "num_slices": 63,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1631",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.181564049411445272074536701212",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.497057304257266566951641121332",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "Contrast/Bolus Agent: ni",
+        "cached_path": "data/processed/TCGA-25-1631/074536701212_951641121332.pt",
+        "num_slices": 32,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1634": {
+    "patient_id": "TCGA-25-1634",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1091.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 75.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 10,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.224749192275922798055830170139",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.188186160811340583099479464007",
+        "role_tag": "primary_routine",
+        "series_description": "AP_Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/055830170139_099479464007.pt",
+        "num_slices": 75,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.234416319352911922799938270285",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.119295522749992276133009244146",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-1634/799938270285_133009244146.pt",
+        "num_slices": 80,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.317199251144875846257417462351",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.148678883725650076035397218854",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-1634/257417462351_035397218854.pt",
+        "num_slices": 56,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.292423235034339068726002514670",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.197962045135617338059165323939",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-1634/726002514670_059165323939.pt",
+        "num_slices": 60,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.473197200965637050931961255703",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.866341793764840954486787161918",
+        "role_tag": "delayed",
+        "series_description": "delay kidneys  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/931961255703_486787161918.pt",
+        "num_slices": 54,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.473197200965637050931961255703",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.416588484197051797615791675373",
+        "role_tag": "primary_routine",
+        "series_description": "AP_Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/931961255703_615791675373.pt",
+        "num_slices": 82,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.495047939965946585055148219270",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.158885165030445782081429432455",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/055148219270_081429432455.pt",
+        "num_slices": 79,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.550891266557079941431078613868",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.208205628483758667256286401355",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/431078613868_256286401355.pt",
+        "num_slices": 75,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.985059924648783404776626964436",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.127711580828246035974563113028",
+        "role_tag": "delayed",
+        "series_description": "5 min delayed  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/776626964436_974563113028.pt",
+        "num_slices": 61,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1634",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.985059924648783404776626964436",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.180033127918582816260468455356",
+        "role_tag": "primary_routine",
+        "series_description": "AP_Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1634/776626964436_260468455356.pt",
+        "num_slices": 80,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-1635": {
+    "patient_id": "TCGA-25-1635",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1583.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 71.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 6,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.104489572848937049072364600338",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.458906732576941124861019015510",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1635/072364600338_861019015510.pt",
+        "num_slices": 85,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.126084888183212579565653759704",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.104745219187151862915003410737",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-1635/565653759704_915003410737.pt",
+        "num_slices": 77,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.302339278276866776063450571755",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.292403523919288127212059057140",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1635/063450571755_212059057140.pt",
+        "num_slices": 84,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.163305322627239235462338103061",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.291257690244651522592393093703",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1635/462338103061_592393093703.pt",
+        "num_slices": 85,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.268621818641634457030151740526",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.255048014920942447904598691600",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1635/030151740526_904598691600.pt",
+        "num_slices": 87,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-1635",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.333454602709006216674504401907",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.264735605171273124427387982859",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-1635/674504401907_427387982859.pt",
+        "num_slices": 82,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-2393": {
+    "patient_id": "TCGA-25-2393",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1157.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 81.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 12,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.140643768352014323622500201683",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.131619721383522324177993368031",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/622500201683_177993368031.pt",
+        "num_slices": 98,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.144511727436225461871752274338",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.157273356805022135032218318980",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/871752274338_032218318980.pt",
+        "num_slices": 96,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.147628736133980603190968213313",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.748070909113869455797359249996",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/190968213313_797359249996.pt",
+        "num_slices": 96,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.223833898191207272407300573701",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.681697509703818372559240693764",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/407300573701_559240693764.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.165979467533636276421639288244",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.286858563919932361580618217153",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/421639288244_580618217153.pt",
+        "num_slices": 101,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.209672858142574665469465424187",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.797811871166041093380361528960",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2393/469465424187_380361528960.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.274810434374679870124138409699",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.610548292003052996815739402968",
+        "role_tag": "primary_routine",
+        "series_description": "AP_Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/124138409699_815739402968.pt",
+        "num_slices": 98,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.786953936709651165656907064382",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.146696877111764673669013086698",
+        "role_tag": "primary_routine",
+        "series_description": "AP routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/656907064382_669013086698.pt",
+        "num_slices": 80,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.322010643148193043159064961715",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.332549404213723511818111452659",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2393/159064961715_818111452659.pt",
+        "num_slices": 65,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.312549704183596533997773429201",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.333565013631025843859198536412",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2393/997773429201_859198536412.pt",
+        "num_slices": 108,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.313968615688474702334006618560",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.123938508035032059085895345074",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2393/334006618560_085895345074.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2393",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.967534357560202022318764792431",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.219675497874579359151782723052",
+        "role_tag": "primary_routine",
+        "series_description": "AP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2393/318764792431_151782723052.pt",
+        "num_slices": 91,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-25-2399": {
+    "patient_id": "TCGA-25-2399",
+    "fold": 2,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 608.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 80.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 6,
+    "volumes": [
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.165115071930758232004064459590",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.267168206388954713999561616026",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2399/004064459590_999561616026.pt",
+        "num_slices": 67,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.393008868441321728193624880959",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.809531077101442264025723207696",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2399/193624880959_025723207696.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.255990076516335170317482943446",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.311274326323161044307573567809",
+        "role_tag": "primary_routine",
+        "series_description": "CAP routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2399/317482943446_307573567809.pt",
+        "num_slices": 119,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.957113447997477860627211066592",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.452235712948170334974338624917",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2399/627211066592_974338624917.pt",
+        "num_slices": 90,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.212780695310358871343668552448",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.290136483656970366395637791700",
+        "role_tag": "primary_routine",
+        "series_description": "CAP Routine  5.0  B40f",
+        "cached_path": "data/processed/TCGA-25-2399/343668552448_395637791700.pt",
+        "num_slices": 123,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-25-2399",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.693173395254331763651923679713",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3344.4007.325458772291337623283029918977",
+        "role_tag": "primary_routine",
+        "series_description": "AXIAL",
+        "cached_path": "data/processed/TCGA-25-2399/651923679713_283029918977.pt",
+        "num_slices": 184,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-30-1891": {
+    "patient_id": "TCGA-30-1891",
+    "fold": 0,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 914.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 61.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-30-1891",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3671.4007.159710065345539879485697628124",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3671.4007.116995303901003029157521331470",
+        "role_tag": "primary_routine",
+        "series_description": "AbdRoutine 5.0 B20f",
+        "cached_path": "data/processed/TCGA-30-1891/485697628124_157521331470.pt",
+        "num_slices": 91,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-30-1891",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.3671.4007.727984800134941362281869457000",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.3671.4007.564323051505695336437687875146",
+        "role_tag": "chest_std",
+        "series_description": "ThoraxCombi 5.0 B30f",
+        "cached_path": "data/processed/TCGA-30-1891/281869457000_437687875146.pt",
+        "num_slices": 58,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-1730": {
+    "patient_id": "TCGA-61-1730",
+    "fold": 1,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 132.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 78.0,
+      "stage": "Stage IC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-1730",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.829767569209720919298100089284",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.191047461676992440163608900869",
+        "role_tag": "delayed",
+        "series_description": "DELAYED ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-61-1730/298100089284_163608900869.pt",
+        "num_slices": 63,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-1730",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.829767569209720919298100089284",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.164854012573948239107161903875",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "CAP  W CONTRAST",
+        "cached_path": "data/processed/TCGA-61-1730/298100089284_107161903875.pt",
+        "num_slices": 114,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-1900": {
+    "patient_id": "TCGA-61-1900",
+    "fold": 3,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 176.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IIIB",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-1900",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.131435971298273696633811886945",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.127027743542765853508658656554",
+        "role_tag": "delayed",
+        "series_description": "DELAYED ABDOMEN /PL",
+        "cached_path": "data/processed/TCGA-61-1900/633811886945_508658656554.pt",
+        "num_slices": 91,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-1900",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.131435971298273696633811886945",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.223116432805695206251878205926",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "ABD/PL WITH CONTRAST",
+        "cached_path": "data/processed/TCGA-61-1900/633811886945_251878205926.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-1906": {
+    "patient_id": "TCGA-61-1906",
+    "fold": 3,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 1038.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 55.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-1906",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.241115117775914833866204791267",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.316655342956266654619298850253",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-1906/866204791267_619298850253.pt",
+        "num_slices": 62,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-1906",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.241115117775914833866204791267",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.275312008840691836987079726914",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-1906/866204791267_987079726914.pt",
+        "num_slices": 102,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-1910": {
+    "patient_id": "TCGA-61-1910",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1127.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 56.0,
+      "stage": "Stage IIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-1910",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.121626626711704368882727239930",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.418420405996769359928307512634",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-1910/882727239930_928307512634.pt",
+        "num_slices": 25,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-1910",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.121626626711704368882727239930",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.735448777169789671798933121153",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-1910/882727239930_798933121153.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-1911": {
+    "patient_id": "TCGA-61-1911",
+    "fold": 1,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1293.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 55.0,
+      "stage": "Stage IIA",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-1911",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.100597612662272767334482558356",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.141321722167579220461311203953",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-1911/334482558356_461311203953.pt",
+        "num_slices": 28,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-1911",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.100597612662272767334482558356",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.203129770281032996357363739161",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-1911/334482558356_357363739161.pt",
+        "num_slices": 88,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2002": {
+    "patient_id": "TCGA-61-2002",
+    "fold": 3,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 547.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 46.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2002",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.179731084110399314835352270423",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.234948569046633231730747629772",
+        "role_tag": "delayed",
+        "series_description": "DELAYED ABDOMEN /PL",
+        "cached_path": "data/processed/TCGA-61-2002/835352270423_730747629772.pt",
+        "num_slices": 91,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2002",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.179731084110399314835352270423",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.450121407037877013102194717595",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "ABD/PL WITH CONTRAST",
+        "cached_path": "data/processed/TCGA-61-2002/835352270423_102194717595.pt",
+        "num_slices": 92,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2002",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.254517009882905548962070396583",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.279313201612891947429974207088",
+        "role_tag": "delayed",
+        "series_description": "DELAYED ABDOMEN/PELVIS",
+        "cached_path": "data/processed/TCGA-61-2002/962070396583_429974207088.pt",
+        "num_slices": 85,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2002",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.254517009882905548962070396583",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.136260310833035461198179761934",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "CAP  W CONTRAST",
+        "cached_path": "data/processed/TCGA-61-2002/962070396583_198179761934.pt",
+        "num_slices": 119,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2003": {
+    "patient_id": "TCGA-61-2003",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 122.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 53.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 1,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2003",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.288582415558705094311761980554",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.322520060791218120219448488794",
+        "role_tag": "contrast_enhanced_general",
+        "series_description": "ENHANCED",
+        "cached_path": "data/processed/TCGA-61-2003/311761980554_219448488794.pt",
+        "num_slices": 169,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2009": {
+    "patient_id": "TCGA-61-2009",
+    "fold": 4,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1212.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 65.0,
+      "stage": "Stage IIIC",
+      "residual_disease": "> 1 cm"
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2009",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.316649224520162717113392913593",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.296770747276115380519235534916",
+        "role_tag": "non_contrast",
+        "series_description": "LIVER W/O",
+        "cached_path": "data/processed/TCGA-61-2009/113392913593_519235534916.pt",
+        "num_slices": 48,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2009",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.785331496419116183209635124201",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.421718465042115006902956343537",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-2009/209635124201_902956343537.pt",
+        "num_slices": 49,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2009",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.316649224520162717113392913593",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.187566089202199037710282895936",
+        "role_tag": "primary_routine",
+        "series_description": "ALL WITH",
+        "cached_path": "data/processed/TCGA-61-2009/113392913593_710282895936.pt",
+        "num_slices": 94,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2009",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.785331496419116183209635124201",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.271210120619247858203554526715",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-2009/209635124201_203554526715.pt",
+        "num_slices": 89,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2012": {
+    "patient_id": "TCGA-61-2012",
+    "fold": 0,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 932.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 81.0,
+      "stage": "Stage IIC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2012",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.894646129804827220443835337806",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.198480228182271594549537749605",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-2012/443835337806_549537749605.pt",
+        "num_slices": 41,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2012",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.894646129804827220443835337806",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.336565074650874040486975138397",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-2012/443835337806_486975138397.pt",
+        "num_slices": 87,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2016": {
+    "patient_id": "TCGA-61-2016",
+    "fold": 4,
+    "label_v1": 1,
+    "label_v2": 1,
+    "survival_duration_days": 36.0,
+    "survival_event": 1,
+    "clinical_covariates": {
+      "age": 51.0,
+      "stage": "Stage IIIC",
+      "residual_disease": null
+    },
+    "num_volumes": 6,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.305673756811060734510328299577",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.280337353726495696435283268709",
+        "role_tag": "non_contrast",
+        "series_description": "LIVER W/O",
+        "cached_path": "data/processed/TCGA-61-2016/510328299577_435283268709.pt",
+        "num_slices": 44,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.270174496840383674572692334411",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.127813869410929154491607334467",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-2016/572692334411_491607334467.pt",
+        "num_slices": 76,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.270174496840383674572692334411",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.272928474643401234382387626416",
+        "role_tag": "primary_routine",
+        "series_description": "ABD/PELVIS",
+        "cached_path": "data/processed/TCGA-61-2016/572692334411_382387626416.pt",
+        "num_slices": 95,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.305673756811060734510328299577",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.318972843714475622963319426529",
+        "role_tag": "primary_routine",
+        "series_description": "BIPHASE",
+        "cached_path": "data/processed/TCGA-61-2016/510328299577_963319426529.pt",
+        "num_slices": 131,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.851108976444708756149426240180",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.266699013561549517270109387536",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-2016/149426240180_270109387536.pt",
+        "num_slices": 74,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2016",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.851108976444708756149426240180",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.229254012887865733214485095908",
+        "role_tag": "primary_routine",
+        "series_description": "CHEST ABD PELVIS",
+        "cached_path": "data/processed/TCGA-61-2016/149426240180_214485095908.pt",
+        "num_slices": 149,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2018": {
+    "patient_id": "TCGA-61-2018",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1381.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 62.0,
+      "stage": "Stage IC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2018",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.301029758806643972335754417994",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.111394534039268830917482326245",
+        "role_tag": "delayed",
+        "series_description": "DELAYED BLADDER",
+        "cached_path": "data/processed/TCGA-61-2018/335754417994_917482326245.pt",
+        "num_slices": 29,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2018",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.301029758806643972335754417994",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.294835595902080970477417440349",
+        "role_tag": "primary_routine",
+        "series_description": "CHEST ABD PELVIS",
+        "cached_path": "data/processed/TCGA-61-2018/335754417994_477417440349.pt",
+        "num_slices": 119,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-61-2087": {
+    "patient_id": "TCGA-61-2087",
+    "fold": 0,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 146.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 49.0,
+      "stage": "Stage IC",
+      "residual_disease": null
+    },
+    "num_volumes": 2,
+    "volumes": [
+      {
+        "patient_id": "TCGA-61-2087",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.226589082374666015600189535206",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.428509338537510130200624838850",
+        "role_tag": "delayed",
+        "series_description": "ABD DELAY",
+        "cached_path": "data/processed/TCGA-61-2087/600189535206_200624838850.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-61-2087",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.226589082374666015600189535206",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.6450.4007.547757864666982252062403217302",
+        "role_tag": "primary_routine",
+        "series_description": "ALL WITH",
+        "cached_path": "data/processed/TCGA-61-2087/600189535206_062403217302.pt",
+        "num_slices": 97,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-OY-A56P": {
+    "patient_id": "TCGA-OY-A56P",
+    "fold": 2,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 1207.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 48.0,
+      "stage": "Stage IIIB",
+      "residual_disease": "< 1 cm"
+    },
+    "num_volumes": 4,
+    "volumes": [
+      {
+        "patient_id": "TCGA-OY-A56P",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.129794073413471517081069171708",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.109636050497076732742877311208",
+        "role_tag": "delayed",
+        "series_description": "DELAYS",
+        "cached_path": "data/processed/TCGA-OY-A56P/081069171708_742877311208.pt",
+        "num_slices": 24,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-OY-A56P",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.289335566059434095579669298021",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.870957704207597439986293336956",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel  5.0  B31f",
+        "cached_path": "data/processed/TCGA-OY-A56P/579669298021_986293336956.pt",
+        "num_slices": 59,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-OY-A56P",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.129794073413471517081069171708",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.216624322416919889992460111826",
+        "role_tag": "primary_routine",
+        "series_description": "ABDOMEN & PELVIS",
+        "cached_path": "data/processed/TCGA-OY-A56P/081069171708_992460111826.pt",
+        "num_slices": 126,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-OY-A56P",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.205018168683797270222765500979",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.228873342813331399888426179287",
+        "role_tag": "primary_routine",
+        "series_description": "Chest/Abd/Pel  5.0  B31f",
+        "cached_path": "data/processed/TCGA-OY-A56P/222765500979_888426179287.pt",
+        "num_slices": 101,
+        "file_size_bytes": 2050343
+      }
+    ]
+  },
+  "TCGA-OY-A56Q": {
+    "patient_id": "TCGA-OY-A56Q",
+    "fold": 3,
+    "label_v1": null,
+    "label_v2": null,
+    "survival_duration_days": 576.0,
+    "survival_event": 0,
+    "clinical_covariates": {
+      "age": 78.0,
+      "stage": "Stage IIA",
+      "residual_disease": null
+    },
+    "num_volumes": 3,
+    "volumes": [
+      {
+        "patient_id": "TCGA-OY-A56Q",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.306386903651856055756061387943",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.108380227934238921404215871092",
+        "role_tag": "chest_std",
+        "series_description": "Chest  5.0  B31f",
+        "cached_path": "data/processed/TCGA-OY-A56Q/756061387943_404215871092.pt",
+        "num_slices": 54,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-OY-A56Q",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.238442877427152421872004157118",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.235021910920578475838384078568",
+        "role_tag": "primary_routine",
+        "series_description": "Abdomen Pelvis 5.0  B31f",
+        "cached_path": "data/processed/TCGA-OY-A56Q/872004157118_838384078568.pt",
+        "num_slices": 83,
+        "file_size_bytes": 2050343
+      },
+      {
+        "patient_id": "TCGA-OY-A56Q",
+        "study_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.120026640519680257943784523182",
+        "series_id": "1.3.6.1.4.1.14519.5.2.1.8421.4007.951093057096604389592561755236",
+        "role_tag": "primary_routine",
+        "series_description": "ABD 3MM W  3.0  I40f  3",
+        "cached_path": "data/processed/TCGA-OY-A56Q/943784523182_592561755236.pt",
+        "num_slices": 137,
+        "file_size_bytes": 2050343
+      }
+    ]
+  }
+}
