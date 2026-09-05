@@ -1,0 +1,56 @@
+# configs/mamba3d_flat.yaml
+# Configuration for Stage 3: Minimal 3D Mamba (Flat, Non-Hierarchical)
+
+experiment:
+  name: "mamba3d_flat"
+  description: "Minimal flat 3D Mamba baseline (pure PyTorch S6) on TCGA-OV"
+  stage: 3
+  backend: "pure_pytorch"  # S6 selective scan reference implementation (Turing sm_75 compatible)
+
+data:
+  patient_index: "data/processed/patient_index.json"
+  splits: "data/splits/folds_v1.json"
+  input_shape: [1, 80, 80, 80]
+  num_workers: 2
+  pin_memory: true
+
+model:
+  name: "FlatMamba3D"
+  in_channels: 1
+  num_classes: 1
+  d_model: 128
+  n_layers: 4
+  patch_size: 8
+  d_state: 16
+  expand: 1.5
+  d_conv: 4
+  dropout: 0.2
+  sequence_length: 1000   # (80/8)^3 = 1000 tokens
+
+training:
+  epochs: 15
+  batch_size: 4
+  learning_rate: 0.0005
+  weight_decay: 0.01
+  pos_weight: 0.6          # 27 / 45 balance adjustment
+  amp: true                # FP16 mixed precision autocast
+  grad_accum_steps: 1      # Gradient accumulation steps
+  seed: 42
+
+overfit_test:
+  num_samples: 8
+  epochs: 40
+  learning_rate: 0.002
+  threshold_loss: 0.05
+  threshold_acc: 0.95
+
+sanity_run:
+  epochs: 5
+  val_fold: 0
+
+cv:
+  n_folds: 5
+  folds: [0, 1, 2, 3, 4]
+
+logging:
+  runs_dir: "runs"
