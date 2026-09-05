@@ -1,0 +1,108 @@
+# ============================================================
+#  Cancer-Mamba — ML Training Pipeline .gitignore
+# ============================================================
+
+# ── Data & Datasets ─────────────────────────────────────────
+DATA/
+data/
+datasets/
+raw/
+processed/
+interim/
+external/
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.mat
+
+# ── Model Checkpoints & Weights ─────────────────────────────
+checkpoints/
+weights/
+saved_models/
+models/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.pb
+*.tflite
+*.keras
+
+# ── Experiment Tracking & Logs ──────────────────────────────
+logs/
+runs/
+outputs/
+results/
+wandb/
+mlruns/
+mlartifacts/
+tensorboard/
+tb_logs/
+lightning_logs/
+*.log
+*.out
+
+# ── Python Cache & Build Artifacts ──────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.cache/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual Environments ─────────────────────────────────────
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+conda-env/
+.conda/
+
+# ── Jupyter Notebooks ────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── IDE & Editor ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── Environment Variables & Secrets ─────────────────────────
+.env
+.env.*
+*.pem
+*.key
+secrets.yaml
+secrets.json
+
+# ── Docker ───────────────────────────────────────────────────
+docker-compose.override.yml
+
+# ── Profiling & Benchmarking ─────────────────────────────────
+*.prof
+*.lprof
+profile_output/
+
+# ── Hydra / Config Overrides ─────────────────────────────────
+multirun/
+.hydra/
