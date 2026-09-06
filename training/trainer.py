@@ -96,6 +96,8 @@ class Trainer:
                     raise RuntimeError(f"Overfit test encountered NaN/Inf loss at epoch {epoch}!")
 
                 self.scaler.scale(loss).backward()
+                self.scaler.unscale_(self.optimizer)
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
                 self.scaler.step(self.optimizer)
                 self.scaler.update()
 
@@ -162,6 +164,8 @@ class Trainer:
             self.scaler.scale(loss_scaled).backward()
 
             if (batch_idx + 1) % self.grad_accum_steps == 0 or (batch_idx + 1) == num_batches:
+                self.scaler.unscale_(self.optimizer)
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
                 self.scaler.step(self.optimizer)
                 self.scaler.update()
                 self.optimizer.zero_grad()

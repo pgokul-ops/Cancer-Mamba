@@ -80,6 +80,8 @@ class FlatMamba3D(nn.Module):
         # Final normalization and classification head
         self.norm = nn.LayerNorm(d_model)
         self.classifier = nn.Sequential(
+            nn.Linear(2 * d_model, d_model),
+            nn.GELU(),
             nn.Dropout(p=dropout),
             nn.Linear(d_model, num_classes),
         )
@@ -101,8 +103,9 @@ class FlatMamba3D(nn.Module):
 
         tokens = self.norm(tokens)
 
-        # Global average pool over sequence dimension (dim 1)
-        pooled = tokens.mean(dim=1)  # (B, d_model)
+        # Sequence pooling: concatenate global average (volume background)
+        # and feature maxima (salient dense/tumor activations) across 1000 tokens
+        pooled = torch.cat([tokens.mean(dim=1), tokens.max(dim=1).values], dim=-1)  # (B, 2 * d_model)
 
         # Predict logit
         logits = self.classifier(pooled)  # (B, 1)

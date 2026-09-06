@@ -17,6 +17,112 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+class SelectiveScanFn(torch.autograd.Function):
+    """
+    Pure PyTorch autograd function for S6 selective scan recurrence.
+    Provides:
+      - Explicit FP32 accumulation to prevent FP16 overflow under AMP.
+      - Exact analytical adjoint recurrence for the backward pass, eliminating
+        autograd graph tracking overhead across 1000 sequence steps.
+    """
+
+    @staticmethod
+    def forward(ctx, u, delta, A, B, C, D=None):
+        # u: (B, L, D_in)
+        # delta: (B, L, D_in)
+        # A: (D_in, N)
+        # B: (B, L, N)
+        # C: (B, L, N)
+        # D: Optional (D_in,)
+        b, l, d_in = u.shape
+        n = A.shape[1]
+
+        u_f = u.float()
+        delta_f = delta.float()
+        A_f = A.float()
+        B_f = B.float()
+        C_f = C.float()
+
+        delta_expanded = delta_f.unsqueeze(-1)          # (B, L, D_in, 1)
+        A_expanded = A_f.view(1, 1, d_in, n)             # (1, 1, D_in, N)
+        A_bar = torch.exp(delta_expanded * A_expanded)   # (B, L, D_in, N)
+
+        B_expanded = B_f.unsqueeze(2)                    # (B, L, 1, N)
+        u_expanded = u_f.unsqueeze(-1)                   # (B, L, D_in, 1)
+        Bu_bar = delta_expanded * B_expanded * u_expanded # (B, L, D_in, N)
+        C_expanded = C_f.unsqueeze(2)                    # (B, L, 1, N)
+
+        h_all = torch.empty(b, l, d_in, n, device=u.device, dtype=torch.float32)
+        y = torch.empty(b, l, d_in, device=u.device, dtype=torch.float32)
+
+        h = torch.zeros(b, d_in, n, device=u.device, dtype=torch.float32)
+        for t in range(l):
+            h = A_bar[:, t] * h + Bu_bar[:, t]
+            h_all[:, t] = h
+            y[:, t] = (h * C_expanded[:, t]).sum(dim=-1)
+
+        if D is not None:
+            y = y + u_f * D.float().view(1, 1, d_in)
+
+        # Clamp y to prevent float16 overflow (max ~65504) under AMP
+        y = y.clamp(min=-65000.0, max=65000.0)
+
+        ctx.save_for_backward(u_f, delta_f, A_f, B_f, C_f, D, A_bar, h_all)
+        ctx.has_D = D is not None
+        return y.to(u.dtype)
+
+    @staticmethod
+    def backward(ctx, dy):
+        u_f, delta_f, A_f, B_f, C_f, D, A_bar, h_all = ctx.saved_tensors
+        b, l, d_in = dy.shape
+        n = A_f.shape[1]
+        dy_f = dy.float()
+
+        C_expanded = C_f.unsqueeze(2)
+        B_expanded = B_f.unsqueeze(2)
+        u_expanded = u_f.unsqueeze(-1)
+        delta_expanded = delta_f.unsqueeze(-1)
+        A_expanded = A_f.view(1, 1, d_in, n)
+
+        dh = torch.zeros(b, d_in, n, device=dy.device, dtype=torch.float32)
+        du_f = torch.zeros_like(u_f)
+        ddelta_f = torch.zeros_like(delta_f)
+        dA_f = torch.zeros_like(A_f)
+        dB_f = torch.zeros_like(B_f)
+        dC_f = torch.zeros_like(C_f)
+        dD = (dy_f * u_f).sum(dim=(0, 1)) if ctx.has_D else None
+
+        if ctx.has_D:
+            du_f = du_f + dy_f * D.float().view(1, 1, d_in)
+
+        for t in reversed(range(l)):
+            dh = dh + dy_f[:, t].unsqueeze(-1) * C_expanded[:, t]
+            dC_f[:, t] = (dy_f[:, t].unsqueeze(-1) * h_all[:, t]).sum(dim=1)
+            dBu_bar_t = dh
+
+            du_f[:, t] = du_f[:, t] + (dBu_bar_t * delta_expanded[:, t] * B_expanded[:, t]).sum(dim=-1)
+            dB_f[:, t] = dB_f[:, t] + (dBu_bar_t * delta_expanded[:, t] * u_expanded[:, t]).sum(dim=1)
+            ddelta_Bu = (dBu_bar_t * B_expanded[:, t] * u_expanded[:, t]).sum(dim=-1)
+
+            h_prev = h_all[:, t - 1] if t > 0 else torch.zeros(b, d_in, n, device=dy.device, dtype=torch.float32)
+            dA_bar_t = dh * h_prev
+            ddelta_A_term = dA_bar_t * A_bar[:, t]
+            dA_f = dA_f + (ddelta_A_term * delta_expanded[:, t]).sum(dim=0)
+            ddelta_A = (ddelta_A_term * A_expanded).sum(dim=-1)
+
+            ddelta_f[:, t] = ddelta_f[:, t] + ddelta_Bu + ddelta_A
+            dh = dh * A_bar[:, t]
+
+        return (
+            du_f.to(ctx.saved_tensors[0].dtype),
+            ddelta_f.to(ctx.saved_tensors[1].dtype),
+            dA_f.to(ctx.saved_tensors[2].dtype),
+            dB_f.to(ctx.saved_tensors[3].dtype),
+            dC_f.to(ctx.saved_tensors[4].dtype),
+            dD,
+        )
+
+
 def selective_scan_sequential(
     u: torch.Tensor,       # (B, L, D_in)
     delta: torch.Tensor,   # (B, L, D_in)
@@ -26,45 +132,10 @@ def selective_scan_sequential(
     D: Optional[torch.Tensor] = None,  # (D_in,)
 ) -> torch.Tensor:
     """
-    Selective scan recurrence in pure PyTorch:
-      dA = exp(delta * A)
-      dB = delta * B
-      h_t = dA_t * h_{t-1} + dB_t * u_t
-      y_t = h_t @ C_t + D * u_t
+    Selective scan recurrence in pure PyTorch.
+    Delegates to SelectiveScanFn for high-speed analytical backward and FP32 numerical stability.
     """
-    b, l, d_in = u.shape
-    n = A.shape[1]
-
-    # Compute discretized A_bar: (B, L, D_in, N)
-    # delta: (B, L, D_in, 1), A: (1, 1, D_in, N) -> delta * A: (B, L, D_in, N)
-    delta_expanded = delta.unsqueeze(-1)
-    A_expanded = A.view(1, 1, d_in, n)
-    A_bar = torch.exp(delta_expanded * A_expanded)
-
-    # Compute discretized B_bar * u:
-    # B: (B, L, 1, N), u: (B, L, D_in, 1) -> (B, L, D_in, N)
-    B_expanded = B.unsqueeze(2)
-    u_expanded = u.unsqueeze(-1)
-    Bu_bar = delta_expanded * B_expanded * u_expanded
-
-    # C: (B, L, 1, N)
-    C_expanded = C.unsqueeze(2)
-
-    # Sequential scan loop over sequence dimension
-    h = torch.zeros(b, d_in, n, device=u.device, dtype=u.dtype)
-    ys = []
-
-    for t in range(l):
-        h = A_bar[:, t] * h + Bu_bar[:, t]
-        y_t = (h * C_expanded[:, t]).sum(dim=-1)
-        ys.append(y_t)
-
-    y = torch.stack(ys, dim=1)  # (B, L, D_in)
-
-    if D is not None:
-        y = y + u * D.view(1, 1, d_in)
-
-    return y
+    return SelectiveScanFn.apply(u, delta, A, B, C, D)
 
 
 class S6SelectiveSSM(nn.Module):
@@ -169,8 +240,8 @@ class S6SelectiveSSM(nn.Module):
             x_dbl, [self.dt_rank, self.d_state, self.d_state], dim=-1
         )
 
-        # Delta activation via softplus: (B, L, D_in)
-        delta = F.softplus(self.dt_proj(delta))
+        # Delta activation via softplus: (B, L, D_in) with continuous discretization clamp
+        delta = F.softplus(self.dt_proj(delta)).clamp(min=1e-4, max=0.5)
 
         # Negative exponent for stable state matrix A
         A = -torch.exp(self.A_log.float())  # (D_in, N)
@@ -186,7 +257,7 @@ class S6SelectiveSSM(nn.Module):
         )
 
         # 5. Multiplicative gating with SiLU(z)
-        y = y * F.silu(z)
+        y = y.clamp(min=-65000.0, max=65000.0) * F.silu(z)
 
         # 6. Output projection
         out = self.out_proj(y)
