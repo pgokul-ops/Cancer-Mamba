@@ -1,0 +1,58 @@
+experiment:
+  name: "patient_mamba"
+  description: "Patient-level sequence modeling over multi-phase and longitudinal volumetric embeddings"
+  stage: 5
+
+data:
+  patient_index: "data/processed/patient_index.json"
+  splits: "data/splits/folds_v1.json"
+  manifest: "data/manifests/manifest_v1.json"
+  embeddings_dir: "data/processed/embeddings"
+  d_model: 256
+  max_sequence_length: 12
+
+models:
+  - name: "mean_pooling"
+    class: "MeanPoolingAggregator"
+    d_model: 256
+    d_hidden: 64
+    dropout: 0.2
+
+  - name: "max_pooling"
+    class: "MaxPoolingAggregator"
+    d_model: 256
+    d_hidden: 64
+    dropout: 0.2
+
+  - name: "attention_pooling"
+    class: "AttentionPoolingAggregator"
+    d_model: 256
+    d_hidden: 64
+    dropout: 0.2
+
+  - name: "patient_mamba"
+    class: "PatientMambaAggregator"
+    d_model: 256
+    n_layers: 1
+    d_state: 16
+    expand: 1.5
+    d_conv: 4
+    d_hidden: 64
+    dropout: 0.2
+
+training:
+  epochs: 35
+  batch_size: 8
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  pos_weight: 0.6
+  cls_loss_weight: 1.0
+  survival_loss_weight: 0.5
+  seed: 42
+
+cv:
+  n_folds: 5
+  folds: [0, 1, 2, 3, 4]
+
+logging:
+  runs_dir: "runs"

@@ -156,6 +156,24 @@ class HierarchicalMamba3D(nn.Module):
         logits = self.classifier(pooled)
         return logits
 
+    def forward_features(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        Extracts the 256-dim pre-classifier pooled feature embedding [mean, max].
+        Args:
+            x: Input volume of shape (B, 1, D, H, W).
+        Returns:
+            pooled: Extracted feature vector of shape (B, 2 * d_model).
+        """
+        grid_tokens = self.patch_embed(x, return_grid=True)
+        local_tokens = self.local_stage(grid_tokens)
+        regional_tokens = self.token_reduction(local_tokens)
+        global_tokens = self.global_stage(regional_tokens)
+        global_tokens = self.norm(global_tokens)
+        pooled = torch.cat(
+            [global_tokens.mean(dim=1), global_tokens.max(dim=1).values], dim=-1
+        )
+        return pooled
+
 
 def get_model_param_count(model: nn.Module) -> int:
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
