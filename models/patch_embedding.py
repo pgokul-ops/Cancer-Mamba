@@ -71,13 +71,15 @@ class PatchEmbedding3D(nn.Module):
 
         self.norm = nn.LayerNorm(d_model)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, return_grid: bool = False) -> torch.Tensor:
         """
         Forward pass.
         Args:
             x: (B, 1, D, H, W) e.g. (B, 1, 80, 80, 80).
+            return_grid: If True, returns tokens as a 3D grid (B, Gz, Gy, Gx, d_model).
+                         If False, returns flattened 1D sequence (B, N, d_model).
         Returns:
-            tokens: (B, N, d_model) where N = Gz * Gy * Gx (e.g. 1000 for patch_size=8).
+            tokens: (B, N, d_model) or (B, Gz, Gy, Gx, d_model).
         """
         b, c, d, h, w = x.shape
 
@@ -104,4 +106,8 @@ class PatchEmbedding3D(nn.Module):
                 tokens = tokens + pos_interp
 
         tokens = self.norm(tokens)
+
+        if return_grid:
+            return tokens.view(b, self.grid_size[0], self.grid_size[1], self.grid_size[2], self.d_model)
+
         return tokens

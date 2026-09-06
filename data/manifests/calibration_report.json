@@ -1,0 +1,422 @@
+{
+  "cnn_baseline": {
+    "model_name": "TinyCNN3D (Stage 2)",
+    "probability_distribution": {
+      "class_0": {
+        "count": 27,
+        "mean": 0.5158,
+        "std": 0.241,
+        "min": 0.002,
+        "max": 0.8972
+      },
+      "class_1": {
+        "count": 45,
+        "mean": 0.6101,
+        "std": 0.2719,
+        "min": 0.0054,
+        "max": 0.9035
+      },
+      "mean_class_separation_margin": 0.0943
+    },
+    "evaluation_at_default_0_50": {
+      "threshold": 0.5,
+      "balanced_accuracy": 0.5704,
+      "sensitivity": 0.7333,
+      "specificity": 0.4074,
+      "f1": 0.7021,
+      "youden_j": 0.1407,
+      "tp": 33,
+      "fp": 16,
+      "tn": 11,
+      "fn": 12
+    },
+    "evaluation_at_global_youden": {
+      "threshold": 0.6831,
+      "balanced_accuracy": 0.6704,
+      "sensitivity": 0.6,
+      "specificity": 0.7407,
+      "f1": 0.6835,
+      "youden_j": 0.3407,
+      "tp": 27,
+      "fp": 7,
+      "tn": 20,
+      "fn": 18
+    },
+    "evaluation_at_per_fold_youden": {
+      "balanced_accuracy": "0.7411 +/- 0.1392",
+      "sensitivity": "0.7556 +/- 0.2373",
+      "specificity": "0.7267 +/- 0.2736",
+      "per_fold_thresholds": [
+        0.2476,
+        0.6831,
+        0.2278,
+        0.693,
+        0.7821
+      ],
+      "mean_threshold": 0.5267,
+      "std_threshold": 0.2386
+    },
+    "per_fold_breakdown": [
+      {
+        "fold": 0,
+        "class_0_mean": 0.1769,
+        "class_1_mean": 0.1922,
+        "prob_margin": 0.0153,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5556,
+          "sensitivity": 0.1111,
+          "specificity": 1.0,
+          "f1": 0.2,
+          "youden_j": 0.1111,
+          "tp": 1,
+          "fp": 0,
+          "tn": 6,
+          "fn": 8
+        },
+        "at_youden_optimal": {
+          "threshold": 0.2476,
+          "balanced_accuracy": 0.5833,
+          "sensitivity": 0.3333,
+          "specificity": 0.8333,
+          "f1": 0.4615,
+          "youden_j": 0.1667,
+          "tp": 3,
+          "fp": 1,
+          "tn": 5,
+          "fn": 6
+        }
+      },
+      {
+        "fold": 1,
+        "class_0_mean": 0.5753,
+        "class_1_mean": 0.7503,
+        "prob_margin": 0.175,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5833,
+          "sensitivity": 1.0,
+          "specificity": 0.1667,
+          "f1": 0.7826,
+          "youden_j": 0.1667,
+          "tp": 9,
+          "fp": 5,
+          "tn": 1,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.6831,
+          "balanced_accuracy": 0.9444,
+          "sensitivity": 0.8889,
+          "specificity": 1.0,
+          "f1": 0.9412,
+          "youden_j": 0.8889,
+          "tp": 8,
+          "fp": 0,
+          "tn": 6,
+          "fn": 1
+        }
+      },
+      {
+        "fold": 2,
+        "class_0_mean": 0.5105,
+        "class_1_mean": 0.5313,
+        "prob_margin": 0.0208,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.6333,
+          "sensitivity": 0.6667,
+          "specificity": 0.6,
+          "f1": 0.7059,
+          "youden_j": 0.2667,
+          "tp": 6,
+          "fp": 2,
+          "tn": 3,
+          "fn": 3
+        },
+        "at_youden_optimal": {
+          "threshold": 0.2278,
+          "balanced_accuracy": 0.6,
+          "sensitivity": 1.0,
+          "specificity": 0.2,
+          "f1": 0.8182,
+          "youden_j": 0.2,
+          "tp": 9,
+          "fp": 4,
+          "tn": 1,
+          "fn": 0
+        }
+      },
+      {
+        "fold": 3,
+        "class_0_mean": 0.6875,
+        "class_1_mean": 0.8297,
+        "prob_margin": 0.1422,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "f1": 0.7826,
+          "youden_j": 0.0,
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.693,
+          "balanced_accuracy": 0.8444,
+          "sensitivity": 0.8889,
+          "specificity": 0.8,
+          "f1": 0.8889,
+          "youden_j": 0.6889,
+          "tp": 8,
+          "fp": 1,
+          "tn": 4,
+          "fn": 1
+        }
+      },
+      {
+        "fold": 4,
+        "class_0_mean": 0.6846,
+        "class_1_mean": 0.747,
+        "prob_margin": 0.0624,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5444,
+          "sensitivity": 0.8889,
+          "specificity": 0.2,
+          "f1": 0.7619,
+          "youden_j": 0.0889,
+          "tp": 8,
+          "fp": 4,
+          "tn": 1,
+          "fn": 1
+        },
+        "at_youden_optimal": {
+          "threshold": 0.7821,
+          "balanced_accuracy": 0.7333,
+          "sensitivity": 0.6667,
+          "specificity": 0.8,
+          "f1": 0.75,
+          "youden_j": 0.4667,
+          "tp": 6,
+          "fp": 1,
+          "tn": 4,
+          "fn": 3
+        }
+      }
+    ]
+  },
+  "flat_mamba": {
+    "model_name": "FlatMamba3D (Stage 3)",
+    "probability_distribution": {
+      "class_0": {
+        "count": 27,
+        "mean": 0.6976,
+        "std": 0.1435,
+        "min": 0.4012,
+        "max": 0.9888
+      },
+      "class_1": {
+        "count": 45,
+        "mean": 0.7786,
+        "std": 0.1519,
+        "min": 0.2199,
+        "max": 0.9925
+      },
+      "mean_class_separation_margin": 0.081
+    },
+    "evaluation_at_default_0_50": {
+      "threshold": 0.5,
+      "balanced_accuracy": 0.5148,
+      "sensitivity": 0.9556,
+      "specificity": 0.0741,
+      "f1": 0.7611,
+      "youden_j": 0.0296,
+      "tp": 43,
+      "fp": 25,
+      "tn": 2,
+      "fn": 2
+    },
+    "evaluation_at_global_youden": {
+      "threshold": 0.8118,
+      "balanced_accuracy": 0.6556,
+      "sensitivity": 0.5333,
+      "specificity": 0.7778,
+      "f1": 0.64,
+      "youden_j": 0.3111,
+      "tp": 24,
+      "fp": 6,
+      "tn": 21,
+      "fn": 21
+    },
+    "evaluation_at_per_fold_youden": {
+      "balanced_accuracy": "0.7255 +/- 0.0866",
+      "sensitivity": "0.7111 +/- 0.1507",
+      "specificity": "0.7400 +/- 0.1555",
+      "per_fold_thresholds": [
+        0.792,
+        0.8514,
+        0.6039,
+        0.7722,
+        0.7425
+      ],
+      "mean_threshold": 0.7524,
+      "std_threshold": 0.0824
+    },
+    "per_fold_breakdown": [
+      {
+        "fold": 0,
+        "class_0_mean": 0.6604,
+        "class_1_mean": 0.7209,
+        "prob_margin": 0.0605,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.4722,
+          "sensitivity": 0.7778,
+          "specificity": 0.1667,
+          "f1": 0.6667,
+          "youden_j": -0.0556,
+          "tp": 7,
+          "fp": 5,
+          "tn": 1,
+          "fn": 2
+        },
+        "at_youden_optimal": {
+          "threshold": 0.792,
+          "balanced_accuracy": 0.6944,
+          "sensitivity": 0.5556,
+          "specificity": 0.8333,
+          "f1": 0.6667,
+          "youden_j": 0.3889,
+          "tp": 5,
+          "fp": 1,
+          "tn": 5,
+          "fn": 4
+        }
+      },
+      {
+        "fold": 1,
+        "class_0_mean": 0.799,
+        "class_1_mean": 0.871,
+        "prob_margin": 0.072,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "f1": 0.75,
+          "youden_j": 0.0,
+          "tp": 9,
+          "fp": 6,
+          "tn": 0,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.8514,
+          "balanced_accuracy": 0.7778,
+          "sensitivity": 0.8889,
+          "specificity": 0.6667,
+          "f1": 0.8421,
+          "youden_j": 0.5556,
+          "tp": 8,
+          "fp": 2,
+          "tn": 4,
+          "fn": 1
+        }
+      },
+      {
+        "fold": 2,
+        "class_0_mean": 0.5535,
+        "class_1_mean": 0.7513,
+        "prob_margin": 0.1979,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.6,
+          "sensitivity": 1.0,
+          "specificity": 0.2,
+          "f1": 0.8182,
+          "youden_j": 0.2,
+          "tp": 9,
+          "fp": 4,
+          "tn": 1,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.6039,
+          "balanced_accuracy": 0.8333,
+          "sensitivity": 0.6667,
+          "specificity": 1.0,
+          "f1": 0.8,
+          "youden_j": 0.6667,
+          "tp": 6,
+          "fp": 0,
+          "tn": 5,
+          "fn": 3
+        }
+      },
+      {
+        "fold": 3,
+        "class_0_mean": 0.7314,
+        "class_1_mean": 0.8351,
+        "prob_margin": 0.1037,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "f1": 0.7826,
+          "youden_j": 0.0,
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.7722,
+          "balanced_accuracy": 0.7444,
+          "sensitivity": 0.8889,
+          "specificity": 0.6,
+          "f1": 0.8421,
+          "youden_j": 0.4889,
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        }
+      },
+      {
+        "fold": 4,
+        "class_0_mean": 0.731,
+        "class_1_mean": 0.7146,
+        "prob_margin": -0.0164,
+        "at_default_0_50": {
+          "threshold": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "f1": 0.7826,
+          "youden_j": 0.0,
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "at_youden_optimal": {
+          "threshold": 0.7425,
+          "balanced_accuracy": 0.5778,
+          "sensitivity": 0.5556,
+          "specificity": 0.6,
+          "f1": 0.625,
+          "youden_j": 0.1556,
+          "tp": 5,
+          "fp": 2,
+          "tn": 3,
+          "fn": 4
+        }
+      }
+    ]
+  }
+}

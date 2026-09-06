@@ -1,0 +1,58 @@
+# configs/hierarchical_mamba.yaml
+# Configuration for Stage 4: Hierarchical 3D Mamba
+
+experiment:
+  name: "hierarchical_mamba"
+  description: "Hierarchical 3D Mamba with local cubic windows, token reduction, and global regional scan"
+  stage: 4
+  backend: "pure_pytorch"
+
+data:
+  patient_index: "data/processed/patient_index.json"
+  splits: "data/splits/folds_v1.json"
+  input_shape: [1, 80, 80, 80]
+  num_workers: 2
+  pin_memory: true
+
+model:
+  name: "HierarchicalMamba3D"
+  in_channels: 1
+  num_classes: 1
+  d_model: 128
+  patch_size: 8
+  window_size: 2          # Divides 10; w=2 gives 5x5x5=125 windows of 2x2x2=8 tokens
+  local_layers: 2         # Local windowed Mamba layers
+  token_reduction: "learned_proj"  # 'learned_proj' (default) or 'mean_pool'
+  global_layers: 2        # Global regional Mamba layers over 125 tokens
+  d_state: 16
+  expand: 1.5
+  d_conv: 4
+  dropout: 0.2
+
+training:
+  epochs: 15
+  batch_size: 4
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  pos_weight: 0.6          # 27 / 45 class balance adjustment
+  amp: true                # FP16 mixed precision autocast
+  grad_accum_steps: 1      # Gradient accumulation steps
+  seed: 42
+
+overfit_test:
+  num_samples: 8
+  epochs: 25
+  learning_rate: 0.005
+  threshold_loss: 0.05
+  threshold_acc: 0.95
+
+sanity_run:
+  epochs: 5
+  val_fold: 0
+
+cv:
+  n_folds: 5
+  folds: [0, 1, 2, 3, 4]
+
+logging:
+  runs_dir: "runs"
