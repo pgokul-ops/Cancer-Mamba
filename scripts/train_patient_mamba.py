@@ -8,11 +8,12 @@ Orchestrates Stage 5 Patient-Level Sequence Modeling and Baselines:
      - Max Pooling
      - Attention Pooling
      - Patient Mamba
-  2. Dual task evaluation:
+  2. Reconciles the frozen-embedding gap by supporting warm-start of the pre-classifier head from Stage 4.
+  3. Dual task evaluation:
      - 5-year binary recurrence classification (N=72 labeled cohort) with threshold calibration (tau=0.50 and tau*).
      - Full-cohort time-to-event survival modeling (N=92 patients) with Harrell's Concordance Index (C-index).
-  3. Paired per-fold comparison table against Stage 4 Hierarchical baseline.
-  4. Exports metrics.json, config.yaml, and training.log.
+  4. Paired per-fold comparison table against Stage 4 Hierarchical baseline.
+  5. Exports metrics.json, config.yaml, and training.log.
 """
 
 import argparse
@@ -70,7 +71,7 @@ def setup_logger(log_file: Optional[Path] = None) -> logging.Logger:
 def instantiate_model(model_cfg: Dict[str, Any]) -> nn.Module:
     name = model_cfg["name"]
     d_model = model_cfg.get("d_model", 256)
-    d_hidden = model_cfg.get("d_hidden", 64)
+    d_hidden = model_cfg.get("d_hidden", 128)
     dropout = model_cfg.get("dropout", 0.2)
 
     if name == "mean_pooling":
@@ -113,7 +114,8 @@ def compute_binary_metrics(
     auc = float(roc_auc_score(y_true, y_prob))
     prec, rec, _ = precision_recall_curve(y_true, y_prob)
     order = np.argsort(rec)
-    pr_auc = float(np.trapz(prec[order], rec[order]))
+    trap_fn = getattr(np, "trapezoid", getattr(np, "trapz", None))
+    pr_auc = float(trap_fn(prec[order], rec[order]))
 
     y_pred = (y_prob >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred, labels=[0, 1]).ravel()
@@ -159,10 +161,24 @@ def train_eval_model_fold(
     epochs = config["training"]["epochs"]
     batch_size = config["training"]["batch_size"]
     lr = config["training"]["learning_rate"]
+    head_lr = config["training"].get("head_learning_rate", 1e-4)
     wd = config["training"]["weight_decay"]
     pos_weight = config["training"].get("pos_weight", 0.6)
     cls_w = config["training"].get("cls_loss_weight", 1.0)
-    surv_w = config["training"].get("survival_loss_weight", 0.5)
+    surv_w = config["training"].get("survival_loss_weight", 0.2)
+    warm_start = config["training"].get("warm_start_head", True)
+    ckpt_dir = Path(config["training"].get("checkpoints_dir", "runs/stage4_checkpoints"))
+
+    # Warm-start classifier head if available
+    ckpt_path = ckpt_dir / f"best_model_fold_{fold_idx}.pt"
+    if warm_start and ckpt_path.exists():
+        ckpt = torch.load(ckpt_path, map_location="cpu")
+        with torch.no_grad():
+            if hasattr(model, "classifier") and len(model.classifier) >= 4:
+                model.classifier[0].weight.copy_(ckpt["state_dict"]["classifier.0.weight"])
+                model.classifier[0].bias.copy_(ckpt["state_dict"]["classifier.0.bias"])
+                model.classifier[3].weight.copy_(ckpt["state_dict"]["classifier.3.weight"])
+                model.classifier[3].bias.copy_(ckpt["state_dict"]["classifier.3.bias"])
 
     train_ds = PatientSequenceDataset(
         patient_index_path=config["data"]["patient_index"],
@@ -190,7 +206,17 @@ def train_eval_model_fold(
         val_ds, batch_size=batch_size, shuffle=False, collate_fn=collate_patient_sequences
     )
 
-    optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=wd)
+    # Parameter groups with different learning rates
+    head_params = list(model.classifier.parameters())
+    head_param_ids = set(id(p) for p in head_params)
+    base_params = [p for p in model.parameters() if id(p) not in head_param_ids]
+
+    optimizer_grouped_params = [
+        {"params": base_params, "lr": lr},
+        {"params": head_params, "lr": head_lr if warm_start else lr},
+    ]
+
+    optimizer = torch.optim.AdamW(optimizer_grouped_params, weight_decay=wd)
     pos_weight_t = torch.tensor([pos_weight], device=device)
     bce_loss_fn = nn.BCEWithLogitsLoss(pos_weight=pos_weight_t)
     cox_loss_fn = CoxLoss()
@@ -219,14 +245,12 @@ def train_eval_model_fold(
             logits = out["logits"].squeeze(1)
             risk = out["risk_scores"].squeeze(1)
 
-            # Masked BCE loss only on labeled cohort (label != -1)
             labeled_mask = (labels >= 0)
             if labeled_mask.sum() > 0:
                 l_cls = bce_loss_fn(logits[labeled_mask], labels[labeled_mask])
             else:
                 l_cls = torch.tensor(0.0, device=device)
 
-            # Cox loss on all uncensored/censored patients
             l_surv = cox_loss_fn(risk, durations, events)
 
             total_loss = cls_w * l_cls + surv_w * l_surv
@@ -266,7 +290,6 @@ def train_eval_model_fold(
         val_durations = np.array(val_durations)
         val_events = np.array(val_events)
 
-        # Classification metrics on labeled patients
         labeled_idx = (val_labels >= 0)
         y_true_cls = val_labels[labeled_idx].astype(int)
         y_prob_cls = val_probs[labeled_idx]
@@ -274,7 +297,6 @@ def train_eval_model_fold(
         cls_metrics = compute_binary_metrics(y_true_cls, y_prob_cls, threshold=0.50)
         cal_metrics = compute_youden_optimal(y_true_cls, y_prob_cls)
 
-        # Survival C-index across ALL validation patients in this fold
         c_index = harrell_c_index(val_risks, val_durations, val_events)
 
         auc_val = cls_metrics.get("roc_auc")
@@ -310,6 +332,92 @@ def train_eval_model_fold(
     }
 
 
+def compute_stage4_control(config: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Computes Task 1 control:
+    Direct application of Stage 4 pre-trained classifier head to:
+      (a) Volume-logit averaging
+      (b) Embedding-level mean pooling
+    """
+    ckpt_dir = Path(config["training"].get("checkpoints_dir", "runs/stage4_checkpoints"))
+    with open(config["data"]["patient_index"], "r") as f:
+        patient_index = json.load(f)
+    with open(config["data"]["splits"], "r") as f:
+        splits = json.load(f)
+
+    patient_to_fold = splits["patient_to_fold"]
+    m1_aucs = []
+    m2_aucs = []
+
+    for fold in config["cv"]["folds"]:
+        ckpt_path = ckpt_dir / f"best_model_fold_{fold}.pt"
+        if not ckpt_path.exists():
+            continue
+        ckpt = torch.load(ckpt_path, map_location="cpu")
+        head = nn.Sequential(
+            nn.Linear(256, 128),
+            nn.GELU(),
+            nn.Dropout(0.2),
+            nn.Linear(128, 1),
+        )
+        head_weights = {
+            "0.weight": ckpt["state_dict"]["classifier.0.weight"],
+            "0.bias": ckpt["state_dict"]["classifier.0.bias"],
+            "3.weight": ckpt["state_dict"]["classifier.3.weight"],
+            "3.bias": ckpt["state_dict"]["classifier.3.bias"],
+        }
+        head.load_state_dict(head_weights)
+        head.eval()
+
+        val_patients = [
+            p for p, f in patient_to_fold.items()
+            if f == fold and patient_index[p].get("label_v2") in (0, 1)
+        ]
+
+        y_true, y_prob_m1, y_prob_m2 = [], [], []
+        with torch.no_grad():
+            for p in val_patients:
+                y = patient_index[p]["label_v2"]
+                vols = patient_index[p]["volumes"]
+                embs = []
+                for v in vols:
+                    emb_p = Path(config["data"]["embeddings_dir"]) / f"fold_{fold}" / p / f"{v['study_id']}_{v['series_id']}.npy"
+                    if emb_p.exists():
+                        embs.append(torch.tensor(np.load(emb_p), dtype=torch.float32))
+
+                if not embs:
+                    continue
+
+                # Method 1: Volume logit average
+                vol_logits = [head(e.unsqueeze(0)).item() for e in embs]
+                pat_prob_m1 = 1.0 / (1.0 + np.exp(-np.mean(vol_logits)))
+
+                # Method 2: Mean embedding then head
+                mean_emb = torch.stack(embs).mean(dim=0, keepdim=True)
+                pat_prob_m2 = 1.0 / (1.0 + np.exp(-head(mean_emb).item()))
+
+                y_true.append(y)
+                y_prob_m1.append(pat_prob_m1)
+                y_prob_m2.append(pat_prob_m2)
+
+        auc1 = float(roc_auc_score(y_true, y_prob_m1))
+        auc2 = float(roc_auc_score(y_true, y_prob_m2))
+        m1_aucs.append(round(auc1, 4))
+        m2_aucs.append(round(auc2, 4))
+
+    return {
+        "stage4_volume_logit_mean": {
+            "mean": round(float(np.mean(m1_aucs)), 4) if m1_aucs else None,
+            "std": round(float(np.std(m1_aucs)), 4) if m1_aucs else None,
+            "per_fold": m1_aucs,
+        },
+        "stage4_embedding_mean_then_head": {
+            "mean": round(float(np.mean(m2_aucs)), 4) if m2_aucs else None,
+            "std": round(float(np.std(m2_aucs)), 4) if m2_aucs else None,
+            "per_fold": m2_aucs,
+        },
+    }
+
 
 def run_model_cv(
     model_cfg: Dict[str, Any],
@@ -328,7 +436,6 @@ def run_model_cv(
     start_time = time.time()
 
     for fold_idx in all_folds:
-        # Re-seed for identical fold initialization
         torch.manual_seed(config["training"]["seed"] + fold_idx)
         np.random.seed(config["training"]["seed"] + fold_idx)
 
@@ -351,7 +458,6 @@ def run_model_cv(
 
     duration = time.time() - start_time
 
-    # Aggregate across folds
     aucs = [f["classification_default"]["roc_auc"] for f in fold_results if f["classification_default"]["roc_auc"] is not None]
     pr_aucs = [f["classification_default"]["pr_auc"] for f in fold_results if f["classification_default"]["pr_auc"] is not None]
     f1s = [f["classification_default"]["f1"] for f in fold_results if f["classification_default"]["f1"] is not None]
@@ -415,18 +521,23 @@ def main():
         config["training"]["epochs"] = args.epochs
 
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    run_dir = Path("runs") / f"{timestamp}_patient_mamba"
+    run_dir = Path("runs") / f"{timestamp}_patient_mamba_reconciled"
     run_dir.mkdir(parents=True, exist_ok=True)
 
     logger = setup_logger(run_dir / "training.log")
-    logger.info("=== Stage 5: Patient-Level Sequence Modeling & Baselines ===")
+    logger.info("=== Stage 5: Patient-Level Sequence Modeling & Baselines (Reconciled) ===")
     logger.info(f"Run directory: {run_dir}")
 
     device = torch.device(args.device)
     logger.info(f"Using device: {device}")
 
-    # Load Stage 4 benchmark results for paired comparison
-    stage4_aucs = [0.5556, 0.8333, 0.8222, 0.9333, 0.8222]
+    # Task 1 Control: Compute Stage 4 Volume Logit Mean vs Embedding Mean then Head
+    logger.info("\n--- Computing Task 1 Apples-to-Apples Control ---")
+    task1_control = compute_stage4_control(config)
+    s4_vol_logit = task1_control["stage4_volume_logit_mean"]
+    s4_emb_head = task1_control["stage4_embedding_mean_then_head"]
+    logger.info(f"Stage 4 Volume Logit Mean (Control A): {s4_vol_logit['mean']} +/- {s4_vol_logit['std']} {s4_vol_logit['per_fold']}")
+    logger.info(f"Stage 4 Embedding Mean then Head (Control B): {s4_emb_head['mean']} +/- {s4_emb_head['std']} {s4_emb_head['per_fold']}")
 
     all_results = {}
     for model_cfg in config["models"]:
@@ -434,36 +545,37 @@ def main():
         all_results[model_cfg["name"]] = res
 
     # Construct paired per-fold comparison table
-    logger.info("\n" + "=" * 90)
-    logger.info("PAIRED PER-FOLD COMPARISON: STAGE 4 vs STAGE 5 AGGREGATORS")
-    logger.info("=" * 90)
-    header = f"{'Fold':<6} | {'Stage 4 (Vol Pool)':<18} | {'Mean Pool':<12} | {'Max Pool':<12} | {'Attention':<12} | {'Patient Mamba':<14} | {'Mamba Delta':<12}"
+    logger.info("\n" + "=" * 98)
+    logger.info("RECONCILED PAIRED COMPARISON: STAGE 4 BASELINE vs STAGE 5 AGGREGATORS")
+    logger.info("=" * 98)
+    header = f"{'Fold':<6} | {'Stage 4 Vol Logit':<18} | {'Stage 4 Emb Head':<18} | {'Mean Pool':<12} | {'Attention':<12} | {'Patient Mamba':<14} | {'Mamba Delta':<12}"
     logger.info(header)
     logger.info("-" * len(header))
 
+    s4_vol_aucs = s4_vol_logit["per_fold"]
+    s4_emb_aucs = s4_emb_head["per_fold"]
     mamba_aucs = all_results["patient_mamba"]["classification_default_tau_0_50"]["roc_auc"]["per_fold"]
     mean_aucs = all_results["mean_pooling"]["classification_default_tau_0_50"]["roc_auc"]["per_fold"]
-    max_aucs = all_results["max_pooling"]["classification_default_tau_0_50"]["roc_auc"]["per_fold"]
     att_aucs = all_results["attention_pooling"]["classification_default_tau_0_50"]["roc_auc"]["per_fold"]
 
     for f_idx in range(5):
-        s4 = stage4_aucs[f_idx]
+        s4_v = s4_vol_aucs[f_idx]
+        s4_e = s4_emb_aucs[f_idx]
         pm = mamba_aucs[f_idx]
         mp = mean_aucs[f_idx]
-        xp = max_aucs[f_idx]
         ap = att_aucs[f_idx]
-        delta = pm - s4
+        delta = pm - s4_v
         delta_str = f"{delta:+.4f}"
-        logger.info(f"Fold {f_idx:<1} | {s4:<18.4f} | {mp:<12.4f} | {xp:<12.4f} | {ap:<12.4f} | {pm:<14.4f} | {delta_str:<12}")
+        logger.info(f"Fold {f_idx:<1} | {s4_v:<18.4f} | {s4_e:<18.4f} | {mp:<12.4f} | {ap:<12.4f} | {pm:<14.4f} | {delta_str:<12}")
 
     logger.info("-" * len(header))
-    m_s4 = float(np.mean(stage4_aucs))
+    m_s4_v = s4_vol_logit["mean"]
+    m_s4_e = s4_emb_head["mean"]
     m_pm = all_results["patient_mamba"]["classification_default_tau_0_50"]["roc_auc"]["mean"]
     m_mp = all_results["mean_pooling"]["classification_default_tau_0_50"]["roc_auc"]["mean"]
-    m_xp = all_results["max_pooling"]["classification_default_tau_0_50"]["roc_auc"]["mean"]
     m_ap = all_results["attention_pooling"]["classification_default_tau_0_50"]["roc_auc"]["mean"]
-    logger.info(f"{'Mean':<6} | {m_s4:<18.4f} | {m_mp:<12.4f} | {m_xp:<12.4f} | {m_ap:<12.4f} | {m_pm:<14.4f} | {m_pm - m_s4:+.4f}")
-    logger.info("=" * 90)
+    logger.info(f"{'Mean':<6} | {m_s4_v:<18.4f} | {m_s4_e:<18.4f} | {m_mp:<12.4f} | {m_ap:<12.4f} | {m_pm:<14.4f} | {m_pm - m_s4_v:+.4f}")
+    logger.info("=" * 98)
 
     # Save outputs
     with open(run_dir / "config.yaml", "w", encoding="utf-8") as f:
@@ -473,15 +585,15 @@ def main():
         json.dump(
             {
                 "timestamp": timestamp,
-                "stage": 5,
-                "stage4_reference_aucs": stage4_aucs,
+                "stage": 5.5,
+                "task1_control": task1_control,
                 "aggregators": all_results,
             },
             f,
             indent=2,
         )
 
-    logger.info(f"\nAll Stage 5 artifacts written to {run_dir}")
+    logger.info(f"\nAll Stage 5.5 artifacts written to {run_dir}")
 
 
 if __name__ == "__main__":

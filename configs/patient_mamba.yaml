@@ -15,19 +15,19 @@ models:
   - name: "mean_pooling"
     class: "MeanPoolingAggregator"
     d_model: 256
-    d_hidden: 64
+    d_hidden: 128
     dropout: 0.2
 
   - name: "max_pooling"
     class: "MaxPoolingAggregator"
     d_model: 256
-    d_hidden: 64
+    d_hidden: 128
     dropout: 0.2
 
   - name: "attention_pooling"
     class: "AttentionPoolingAggregator"
     d_model: 256
-    d_hidden: 64
+    d_hidden: 128
     dropout: 0.2
 
   - name: "patient_mamba"
@@ -37,17 +37,20 @@ models:
     d_state: 16
     expand: 1.5
     d_conv: 4
-    d_hidden: 64
+    d_hidden: 128
     dropout: 0.2
 
 training:
   epochs: 35
   batch_size: 8
   learning_rate: 0.001
+  head_learning_rate: 0.0001
   weight_decay: 0.0001
   pos_weight: 0.6
   cls_loss_weight: 1.0
-  survival_loss_weight: 0.5
+  survival_loss_weight: 0.2
+  warm_start_head: true
+  checkpoints_dir: "runs/stage4_checkpoints"
   seed: 42
 
 cv:
