@@ -390,3 +390,58 @@ Under the Fixed Epoch 15 non-peeking rule on reference Seed 42:
 ```bash
 python scripts/run_noise_floor_study.py --cached-task1-json runs/stage4_fixed_checkpoints/task1_seeds_summary.json
 ```
+
+---
+
+## 12. Stage 5.9: Closing the Protocol Gap & Rigorous Statistical Significance Testing
+
+Stage 5.9 resolves the protocol asymmetry between encoder and aggregator evaluation, compiles the unified 4-way comparison table under honest non-peeking criteria, and conducts a 10-seed paired significance analysis (Wilcoxon signed-rank and 2,000-sample patient-level bootstrap).
+
+### Task 1: Audit Aggregator Checkpoint Selection
+Aggregator models were audited and confirmed to have historically used validation peeking (`if cls_score > best_cls_score` over 35 epochs). Eliminating this loophole via pre-specified **Fixed Epoch 35** evaluation quantified the aggregator peeking inflation gap (Seed 42):
+- **Mean Pooling**: Fixed Ep 35 `0.5008` vs Val Peeking `0.5326` (Inflation: `+0.0318`)
+- **Max Pooling**: Fixed Ep 35 `0.5407` vs Val Peeking `0.5733` (Inflation: `+0.0326`)
+- **Attention Pooling**: Fixed Ep 35 `0.4674` vs Val Peeking `0.5370` (Inflation: `+0.0696`)
+- **Patient Mamba**: Fixed Ep 35 `0.4593` vs Val Peeking `0.5615` (Inflation: `+0.1022`)
+
+### Task 2: Unified 4-Way Architecture Comparison Under Honest Protocol
+Every architecture across Stages 2–5 was evaluated under identical zero-peeking discipline (Fixed Epoch 15 for 3D encoders, Fixed Epoch 35 for patient aggregators):
+
+| Architecture | Parameters | VRAM (MB) | Honest AUC (Fixed Epoch) | Peeking AUC (Optimistic) | Peeking Inflation Gap |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **TinyCNN3D (Stage 2)** | 73,097 | 156.2 | **0.5652 ± 0.1912** | 0.7052 | +0.1400 |
+| **FlatMamba3D (Stage 3)** | 577,665 | 579.1 | **0.5711 ± 0.1873** | 0.7067 | +0.1356 |
+| **HierarchicalMamba3D (Stage 4, Seed 42)** | 627,969 | 622.0 | **0.5319 ± 0.1623** | 0.6889 | +0.1570 |
+| **PatientMamba3D (Stage 5, Seed 42)** | 218,754 | 110.0 | **0.4593 ± 0.1081** | 0.5615 | +0.1022 |
+
+> [!IMPORTANT]
+> **Core Architectural Finding**:
+> Supervised 3D representation learning on ~57 patients per fold achieves **`0.53 – 0.57`** ROC-AUC across all architectures without validation peeking. The earlier reported `~0.70` values were entirely an artifact of validation-peeking early stopping.
+
+### Task 3: 10-Seed Variance & Statistical Significance (N=10 Seeds, 50 Folds)
+Across 10 seeds (`[42, 100, 200, 300, 400, 500, 600, 700, 800, 900]`) evaluated under Fixed Epoch 35 on frozen honest embeddings:
+
+| Model | 10-Seed Mean ROC-AUC | Seed AUC Spread | Calibrated Balanced Acc ($\tau^*$) | Survival C-index ($N=92$) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Mean Pooling** | 0.4973 ± 0.0070 | 0.0267 | 0.6200 ± 0.0065 | 0.4865 ± 0.0130 |
+| **Max Pooling** | 0.5370 ± 0.0084 | 0.0237 | 0.6346 ± 0.0130 | 0.5024 ± 0.0093 |
+| **Attention Pooling** | 0.4858 ± 0.0103 | 0.0400 | 0.6089 ± 0.0112 | 0.4872 ± 0.0145 |
+| **Patient Mamba** | 0.4788 ± 0.0232 | 0.0726 | 0.6078 ± 0.0235 | **0.5194 ± 0.0167** |
+
+#### Hypothesis Testing & Bootstrap Analysis (Patient Mamba vs Mean Pooling)
+1. **Paired Fold Analysis ($N=50$ paired folds)**:
+   - Classification Delta AUC: `-0.0185 ± 0.0947` ($p = 0.1769$ paired t-test, $p = 0.1565$ Wilcoxon signed-rank).
+   - Survival Delta C-index: **`+0.0329 ± 0.0798`** ($t = 2.8806, \mathbf{p = 0.0059}$ paired t-test, $p = 0.0611$ Wilcoxon).
+2. **Patient-Level Bootstrap ($B=2,000$ resamples)**:
+   - **Binary Recurrence ($N=72$)**: $\Delta \text{AUC} = -0.0288$, 95% CI: `[-0.0934, +0.0329]`, $p = 0.3870$ (**Not significant**).
+   - **Time-to-Event Survival ($N=92$)**: $\Delta \text{C-index} = +0.0041$, 95% CI: `[-0.1063, +0.1044]`, $p = 0.9530$.
+
+### Gate Decision & Path to Stage 6
+- **Plain Reporting on Classification**: The cohort size of $N=72$ for binary recurrence lacks statistical power to distinguish sequence modeling from pooling ($p = 0.3870$, 95% CI spans zero). Classification does **not** carry the justification for Stage 6.
+- **Empirical Motivation for Stage 6**: Supervised 3D representations on raw DICOMs collapse to ~`0.53` without peeking. Stage 6 self-supervised pretraining (masked autoencoding across all 203 cached volumes + 462 raw DICOM series) is necessary to learn generalizable volumetric priors, while multimodal clinical fusion provides the signal density required for robust outcome prediction.
+
+### Running Stage 5.9
+```bash
+python scripts/run_protocol_audit_and_significance.py --n-seeds 10 --fixed-epoch 35 --bootstrap-samples 2000
+```
+

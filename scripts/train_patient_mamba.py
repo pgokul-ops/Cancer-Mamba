@@ -221,13 +221,21 @@ def train_eval_model_fold(
     bce_loss_fn = nn.BCEWithLogitsLoss(pos_weight=pos_weight_t)
     cox_loss_fn = CoxLoss()
 
+    fixed_epoch = config["training"].get("fixed_epoch", None)
+
     best_cls_score = -1.0
     best_cls_eval = None
     best_cls_epoch = 0
+    best_patient_preds = []
 
     best_surv_score = -1.0
     best_surv_eval = None
     best_surv_epoch = 0
+
+    fixed_cls_eval = None
+    fixed_cal_eval = None
+    fixed_surv_c_index = 0.5
+    fixed_patient_preds = []
 
     for epoch in range(1, epochs + 1):
         model.train()
@@ -299,6 +307,17 @@ def train_eval_model_fold(
 
         c_index = harrell_c_index(val_risks, val_durations, val_events)
 
+        current_preds = []
+        for i, pid in enumerate(val_pids):
+            current_preds.append({
+                "patient_id": pid,
+                "label": int(val_labels[i]),
+                "prob": float(val_probs[i]),
+                "risk": float(val_risks[i]),
+                "duration": float(val_durations[i]),
+                "event": int(val_events[i]),
+            })
+
         auc_val = cls_metrics.get("roc_auc")
         cls_score = auc_val if auc_val is not None else cls_metrics.get("balanced_accuracy", 0.5)
 
@@ -311,6 +330,7 @@ def train_eval_model_fold(
                 "epoch": epoch,
                 "score": round(cls_score, 4),
             }
+            best_patient_preds = current_preds
 
         if c_index > best_surv_score:
             best_surv_score = c_index
@@ -319,6 +339,32 @@ def train_eval_model_fold(
                 "c_index": round(c_index, 4),
                 "epoch": epoch,
             }
+
+        if (fixed_epoch is not None and epoch == fixed_epoch) or (fixed_epoch is None and epoch == epochs):
+            fixed_cls_eval = cls_metrics
+            fixed_cal_eval = cal_metrics
+            fixed_surv_c_index = c_index
+            fixed_patient_preds = current_preds
+
+    if fixed_epoch is not None:
+        return {
+            "classification_default": fixed_cls_eval if fixed_cls_eval else {},
+            "classification_calibrated": fixed_cal_eval if fixed_cal_eval else {},
+            "classification_best_epoch": fixed_epoch,
+            "survival_c_index": round(fixed_surv_c_index, 4),
+            "survival_best_epoch": fixed_epoch,
+            "num_val_patients_total": len(val_pids),
+            "num_val_labeled": int(labeled_idx.sum()),
+            "epoch": fixed_epoch,
+            "patient_predictions": fixed_patient_preds,
+            "val_peeking": {
+                "classification_default": best_cls_eval["default"] if best_cls_eval else {},
+                "classification_calibrated": best_cls_eval["calibrated"] if best_cls_eval else {},
+                "classification_best_epoch": best_cls_epoch,
+                "survival_c_index": best_surv_eval["c_index"] if best_surv_eval else 0.5,
+                "survival_best_epoch": best_surv_epoch,
+            },
+        }
 
     return {
         "classification_default": best_cls_eval["default"] if best_cls_eval else {},
@@ -329,6 +375,7 @@ def train_eval_model_fold(
         "num_val_patients_total": len(val_pids),
         "num_val_labeled": int(labeled_idx.sum()),
         "epoch": best_cls_epoch,
+        "patient_predictions": best_patient_preds,
     }
 
 
@@ -479,6 +526,10 @@ def run_model_cv(
             "per_fold": vals,
         }
 
+    all_patient_preds = []
+    for f in fold_results:
+        all_patient_preds.extend(f.get("patient_predictions", []))
+
     agg = {
         "model_name": name,
         "runtime_seconds": round(duration, 2),
@@ -498,6 +549,7 @@ def run_model_cv(
         },
         "survival_full_cohort_c_index": mean_std(c_indices),
         "fold_details": fold_results,
+        "patient_predictions": all_patient_preds,
     }
 
     logger.info(f"\n--- {name.upper()} Summary ---")
@@ -512,6 +564,7 @@ def main():
     parser.add_argument("--config", type=str, default="configs/patient_mamba.yaml")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--epochs", type=int, default=None)
+    parser.add_argument("--fixed-epoch", type=int, default=None, help="Fixed epoch for non-peeking evaluation")
     args = parser.parse_args()
 
     with open(args.config, "r") as f:
@@ -519,6 +572,8 @@ def main():
 
     if args.epochs:
         config["training"]["epochs"] = args.epochs
+    if args.fixed_epoch is not None:
+        config["training"]["fixed_epoch"] = args.fixed_epoch
 
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     run_dir = Path("runs") / f"{timestamp}_patient_mamba_reconciled"

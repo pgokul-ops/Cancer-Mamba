@@ -7,7 +7,7 @@ data:
   patient_index: "data/processed/patient_index.json"
   splits: "data/splits/folds_v1.json"
   manifest: "data/manifests/manifest_v1.json"
-  embeddings_dir: "data/processed/embeddings"
+  embeddings_dir: "data/processed/embeddings_fixed_ep15"
   d_model: 256
   max_sequence_length: 12
 
@@ -50,7 +50,7 @@ training:
   cls_loss_weight: 1.0
   survival_loss_weight: 0.2
   warm_start_head: true
-  checkpoints_dir: "runs/stage4_checkpoints"
+  checkpoints_dir: "runs/stage4_fixed_checkpoints"
   seed: 42
 
 cv:
