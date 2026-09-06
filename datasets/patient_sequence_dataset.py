@@ -156,9 +156,12 @@ class PatientSequenceDataset(Dataset):
             seq_embs.append(emb)
 
         seq_tensor = torch.tensor(np.stack(seq_embs), dtype=torch.float32)  # (L, 256)
-        label_v2 = float(pdata.get("label_v2", -1))
-        duration = float(pdata.get("survival_duration_days", 0.0))
-        event = float(pdata.get("survival_event", 0.0))
+        raw_lbl = pdata.get("label_v2")
+        label_v2 = float(raw_lbl) if raw_lbl is not None else -1.0
+        raw_dur = pdata.get("survival_duration_days")
+        duration = float(raw_dur) if raw_dur is not None else 0.0
+        raw_evt = pdata.get("survival_event")
+        event = float(raw_evt) if raw_evt is not None else 0.0
 
         return {
             "patient_id": pid,

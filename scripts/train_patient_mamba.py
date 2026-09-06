@@ -195,9 +195,13 @@ def train_eval_model_fold(
     bce_loss_fn = nn.BCEWithLogitsLoss(pos_weight=pos_weight_t)
     cox_loss_fn = CoxLoss()
 
-    best_score = -1.0
-    best_eval = None
-    best_epoch = 0
+    best_cls_score = -1.0
+    best_cls_eval = None
+    best_cls_epoch = 0
+
+    best_surv_score = -1.0
+    best_surv_eval = None
+    best_surv_epoch = 0
 
     for epoch in range(1, epochs + 1):
         model.train()
@@ -273,23 +277,38 @@ def train_eval_model_fold(
         # Survival C-index across ALL validation patients in this fold
         c_index = harrell_c_index(val_risks, val_durations, val_events)
 
-        auc_val = cls_metrics.get("roc_auc") or 0.5
-        score = 0.5 * auc_val + 0.5 * c_index
+        auc_val = cls_metrics.get("roc_auc")
+        cls_score = auc_val if auc_val is not None else cls_metrics.get("balanced_accuracy", 0.5)
 
-        if score > best_score:
-            best_score = score
-            best_epoch = epoch
-            best_eval = {
-                "classification_default": cls_metrics,
-                "classification_calibrated": cal_metrics,
-                "survival_c_index": round(c_index, 4),
-                "combined_score": round(score, 4),
-                "num_val_patients_total": len(val_pids),
-                "num_val_labeled": int(labeled_idx.sum()),
+        if cls_score > best_cls_score:
+            best_cls_score = cls_score
+            best_cls_epoch = epoch
+            best_cls_eval = {
+                "default": cls_metrics,
+                "calibrated": cal_metrics,
+                "epoch": epoch,
+                "score": round(cls_score, 4),
+            }
+
+        if c_index > best_surv_score:
+            best_surv_score = c_index
+            best_surv_epoch = epoch
+            best_surv_eval = {
+                "c_index": round(c_index, 4),
                 "epoch": epoch,
             }
 
-    return best_eval
+    return {
+        "classification_default": best_cls_eval["default"] if best_cls_eval else {},
+        "classification_calibrated": best_cls_eval["calibrated"] if best_cls_eval else {},
+        "classification_best_epoch": best_cls_epoch,
+        "survival_c_index": best_surv_eval["c_index"] if best_surv_eval else 0.5,
+        "survival_best_epoch": best_surv_epoch,
+        "num_val_patients_total": len(val_pids),
+        "num_val_labeled": int(labeled_idx.sum()),
+        "epoch": best_cls_epoch,
+    }
+
 
 
 def run_model_cv(

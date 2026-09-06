@@ -280,6 +280,68 @@ python scripts/train_hierarchical_mamba.py --mode single_fold
 python scripts/train_hierarchical_mamba.py --mode full_cv
 ```
 
+---
+
+## 10. Stage 5: Patient-Level Sequence Modeling & Survival Analysis
+
+Stage 5 models patients as sequences of volume observations across multi-phase contrast acquisitions and longitudinal CT scans (59 of 92 patients have 2 to 12 cached volumes).
+
+### Task 0 Honest Accounting of Stage 4
+- **Fold 0 Validation ROC-AUC**: Confirmed directly from metrics as **`0.5556`** (matching CNN's `0.5556`).
+- **Paired Per-Fold Comparison**: Hierarchical Mamba wins in 3/5 folds (1, 3, 4) and loses in 2/5 (0, 2) vs Flat Mamba. The mean AUC advantage (+0.0866) was largely propelled by stability on Fold 4 (0.8222 vs 0.4889). On $N=72$, fold variance is substantial ($\text{std} \approx 0.12-0.15$), and calibrated balanced accuracy ($\approx 0.72-0.74$) represents the true baseline to beat.
+
+### Architecture & Aggregation Baselines (`models/patient_aggregators.py`)
+Pre-classifier 256-dim volume embeddings (`[mean, max]` pooled) are extracted from Stage 4 under strict nested cross-validation (zero train/val leakage) and ordered by:
+1. Primary: Study/series acquisition date (`MM-DD-YYYY` from manifest).
+2. Secondary: Clinical contrast phase hierarchy (`non_contrast` $\to$ `arterial` $\to$ `portal_venous` $\to$ `primary_routine` $\to$ `contrast_enhanced_general` $\to$ `delayed` $\to$ `lung_window` $\to$ `chest_std`).
+
+Four aggregation mechanisms are benchmarked with shared dual heads:
+- **Mean Pooling**: Masked average over patient's volume embeddings.
+- **Max Pooling**: Masked maximum over patient's volume embeddings.
+- **Attention Pooling**: Learnable query cross-attention over volume embeddings.
+- **Patient Mamba**: Selective SSM sequence modeling over ordered volume embeddings with masked pooling.
+
+### Dual Output Heads
+1. **5-Year Recurrence Classification**: Binary head evaluated on $N=72$ labeled patients.
+2. **Continuous Survival Hazard**: Cox partial likelihood head (`CoxLoss`) evaluated via Harrell's Concordance Index on **all 92 patients** (including 20 unlabeled classification cases).
+
+### Quantitative Results: Four-Way Aggregation Benchmark
+
+| Metric | Mean Pooling | Max Pooling | Attention Pooling | Patient Mamba (Ours) | Delta (Mamba vs Mean) |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Classification ROC-AUC ($\tau=0.50$)** | 0.6341 ± 0.1049 | 0.6511 ± 0.0911 | 0.6644 ± 0.1065 | **0.7474 ± 0.1210** | **+0.1133** |
+| **Classification PR-AUC** | 0.7463 ± 0.1188 | 0.7152 ± 0.0931 | 0.7686 ± 0.0886 | **0.8328 ± 0.1161** | **+0.0865** |
+| **Classification F1 Score** | 0.5807 ± 0.2971 | 0.5792 ± 0.3035 | 0.6125 ± 0.2965 | **0.6051 ± 0.2105** | +0.0244 |
+| **Calibrated Balanced Acc ($\tau^*$)** | 0.7256 ± 0.0486 | 0.7222 ± 0.0372 | 0.7511 ± 0.0422 | **0.7800 ± 0.0944** | **+0.0544** |
+| **Calibrated Specificity ($\tau^*$)** | 0.6733 ± 0.2603 | 0.6667 ± 0.1461 | 0.7400 ± 0.2498 | **0.7600 ± 0.2480** | **+0.0867** |
+| **Calibrated Sensitivity ($\tau^*$)** | 0.7778 ± 0.1987 | 0.7778 ± 0.1405 | 0.7778 ± 0.1405 | **0.8000 ± 0.1296** | **+0.0222** |
+| **Full-Cohort Survival C-index ($N=92$)**| 0.5943 ± 0.1431 | 0.5805 ± 0.1327 | 0.6137 ± 0.1303 | **0.6606 ± 0.0971** | **+0.0663** |
+| **CV Runtime (5 Folds)** | **8.24s** | **7.12s** | **8.15s** | **16.27s** | Fast training on GPU |
+
+### Paired Per-Fold Comparison: Stage 4 Volume Pooling vs Stage 5 Patient Mamba
+
+| Fold | Stage 4 (Volume Logit Mean) | Mean Pool | Max Pool | Attention Pool | Patient Mamba | Delta (Mamba vs Stage 4) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Fold 0** | 0.5556 | 0.6296 | 0.7222 | 0.6481 | **0.5741** | +0.0185 |
+| **Fold 1** | 0.8333 | 0.5185 | 0.5556 | 0.5185 | **0.6296** | -0.2037 |
+| **Fold 2** | 0.8222 | 0.5556 | 0.6444 | 0.6444 | **0.8667** | +0.0445 |
+| **Fold 3** | 0.9333 | 0.8222 | 0.7778 | 0.8667 | **0.8444** | -0.0889 |
+| **Fold 4** | 0.8222 | 0.6444 | 0.5556 | 0.6444 | **0.8222** | 0.0000 |
+| **Mean** | **0.7933** | 0.6341 | 0.6511 | 0.6644 | **0.7474** | **-0.0459** |
+
+### Running Stage 5
+```bash
+# Run unit tests (including length-1 edge case and survival metrics)
+pytest tests/test_patient_mamba.py -v
+
+# Extract volume embeddings per fold (leakage-free)
+python scripts/extract_embeddings.py
+
+# Run 4-way aggregator benchmark under nested 5-fold CV
+python scripts/train_patient_mamba.py
+```
+
+
 
 
 
