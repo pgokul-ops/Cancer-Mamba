@@ -259,7 +259,7 @@ def extract_fold_embeddings(
                 "fold": fold_idx,
                 "created_at": datetime.utcnow().isoformat() + "Z",
                 "checkpoint_epoch": ckpt["epoch"],
-                "checkpoint_best_score": ckpt["best_score"],
+                "checkpoint_best_score": ckpt.get("best_score", 0.0),
                 "total_volumes": total_volumes,
                 "total_patients": len(patient_index),
                 "num_val_patients": len(val_patients),

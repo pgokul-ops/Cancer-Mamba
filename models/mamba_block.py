@@ -65,7 +65,7 @@ class SelectiveScanFn(torch.autograd.Function):
             y = y + u_f * D.float().view(1, 1, d_in)
 
         # Clamp y to prevent float16 overflow (max ~65504) under AMP
-        y = y.clamp(min=-65000.0, max=65000.0)
+        y = y.clamp(min=-500.0, max=500.0)
 
         ctx.save_for_backward(u_f, delta_f, A_f, B_f, C_f, D, A_bar, h_all)
         ctx.has_D = D is not None
@@ -114,12 +114,12 @@ class SelectiveScanFn(torch.autograd.Function):
             dh = dh * A_bar[:, t]
 
         return (
-            du_f.to(ctx.saved_tensors[0].dtype),
-            ddelta_f.to(ctx.saved_tensors[1].dtype),
-            dA_f.to(ctx.saved_tensors[2].dtype),
-            dB_f.to(ctx.saved_tensors[3].dtype),
-            dC_f.to(ctx.saved_tensors[4].dtype),
-            dD,
+            du_f.clamp(min=-500.0, max=500.0).to(ctx.saved_tensors[0].dtype),
+            ddelta_f.clamp(min=-500.0, max=500.0).to(ctx.saved_tensors[1].dtype),
+            dA_f.clamp(min=-500.0, max=500.0).to(ctx.saved_tensors[2].dtype),
+            dB_f.clamp(min=-500.0, max=500.0).to(ctx.saved_tensors[3].dtype),
+            dC_f.clamp(min=-500.0, max=500.0).to(ctx.saved_tensors[4].dtype),
+            dD.clamp(min=-500.0, max=500.0) if dD is not None else None,
         )
 
 
@@ -257,7 +257,7 @@ class S6SelectiveSSM(nn.Module):
         )
 
         # 5. Multiplicative gating with SiLU(z)
-        y = y.clamp(min=-65000.0, max=65000.0) * F.silu(z)
+        y = (y.clamp(min=-500.0, max=500.0) * F.silu(z)).clamp(min=-500.0, max=500.0)
 
         # 6. Output projection
         out = self.out_proj(y)

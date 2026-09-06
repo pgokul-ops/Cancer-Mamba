@@ -154,7 +154,7 @@ class HierarchicalMamba3D(nn.Module):
 
         # 7. Predict logit
         logits = self.classifier(pooled)
-        return logits
+        return logits.clamp(min=-50.0, max=50.0)
 
     def forward_features(self, x: torch.Tensor) -> torch.Tensor:
         """
